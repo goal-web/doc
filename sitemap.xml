@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="https://goal-web.com/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+<url>
+<loc>https://goal-web.com/</loc>
+</url>
+<url>
+<loc>https://goal-web.com/goal-features.html</loc>
+<lastmod>2022-03-08T17:59:13+08:00</lastmod>
+</url>
+<url>
+<loc>https://goal-web.com/goal-framework.html</loc>
+<lastmod>2022-03-08T17:59:52+08:00</lastmod>
+</url>
+<url>
+<loc>https://goal-web.com/join-goal-2.html</loc>
+<lastmod>2022-03-08T16:39:14+08:00</lastmod>
+</url>
+</urlset>
