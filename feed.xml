@@ -3,12 +3,83 @@
     <title>goal-web</title>
     <link href="https://goal-web.com/feed.xml" rel="self" />
     <link href="https://goal-web.com" />
-    <updated>2022-03-09T10:43:24+08:00</updated>
+    <updated>2022-03-09T10:54:48+08:00</updated>
     <author>
         <name>qbhy</name>
     </author>
     <id>https://goal-web.com</id>
 
+    <entry>
+        <title>Goal 应用目录结构</title>
+        <author>
+            <name>qbhy</name>
+        </author>
+        <link href="https://goal-web.com/goal-ying-yong-mu-lu-jie-gou.html"/>
+        <id>https://goal-web.com/goal-ying-yong-mu-lu-jie-gou.html</id>
+
+        <updated>2022-03-09T10:54:48+08:00</updated>
+            <summary>
+                <![CDATA[
+                    app 应用代码 console 控制台相关代码 commands 定义命令行 kernel.go 默认 console 内核实现，可以在这里定义计划任务 dao 数据操作代码 events 事件定义 listeners 事件监听者 jobs 任务代码，用于投递到 queue http web相关代码 controllers 控制器目录 middlewares 中间件目录 requests 自定义请求目录 sse 服务端事件推送相关代码及示例 models 数据模型定义 policies gate策略定义 services 微服务相关代码 providers 一些应用内的服务提供者 app.go 一些基本的应用初始化代码 gate.go 用于注册gate策略 micro.go 用于注册微服务 websocket ws相关代码和示例config&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2 id="app-应用代码">app 应用代码</h2>
+<ul>
+<li>console 控制台相关代码<ul>
+<li>commands 定义命令行</li>
+<li>kernel.go 默认 console 内核实现，可以在这里定义计划任务</li>
+</ul>
+</li>
+<li>dao 数据操作代码</li>
+<li>events 事件定义</li>
+<li>listeners 事件监听者</li>
+<li>jobs 任务代码，用于投递到 queue</li>
+<li>http web相关代码<ul>
+<li>controllers 控制器目录</li>
+<li>middlewares 中间件目录</li>
+<li>requests 自定义请求目录</li>
+<li>sse 服务端事件推送相关代码及示例</li>
+</ul>
+</li>
+<li>models 数据模型定义</li>
+<li>policies gate策略定义</li>
+<li>services 微服务相关代码</li>
+<li>providers 一些应用内的服务提供者<ul>
+<li>app.go 一些基本的应用初始化代码</li>
+<li>gate.go 用于注册gate策略</li>
+<li>micro.go 用于注册微服务</li>
+</ul>
+</li>
+<li>websocket ws相关代码和示例<h2 id="config-配置文件">config 配置文件</h2>
+</li>
+<li>app.go 应用配置</li>
+<li>auth.go 用户认证配置</li>
+<li>database.go 数据库配置</li>
+<li>bloomfilter.go 布隆过滤器配置</li>
+<li>cache.go 缓存配置</li>
+<li>http.go http配置</li>
+<li>mail.go 邮件配置</li>
+<li>queue.go 队列配置</li>
+<li>session.go 会话配置</li>
+<li>micro.go 微服务配置</li>
+<li>filesystem.go 文件系统配置</li>
+<li>redis.go redis配置</li>
+<li>serialization.go 序列化器配置(job需要在此文件配置)</li>
+<li>websocket.go ws 配置<h2 id="routes-路由文件">routes 路由文件</h2>
+</li>
+<li>api.go http路由</li>
+<li>websocket.go ws 路由</li>
+<li>sse.go 服务端事件推送路由<h2 id="database-数据库相关">database 数据库相关</h2>
+<h2 id="tests-测试代码">tests 测试代码</h2>
+<h2 id="storage-存储目录">storage 存储目录</h2>
+</li>
+</ul>
+
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Goal - 快速开始</title>
         <author>
