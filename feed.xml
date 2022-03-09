@@ -3,12 +3,54 @@
     <title>goal-web</title>
     <link href="https://goal-web.com/feed.xml" rel="self" />
     <link href="https://goal-web.com" />
-    <updated>2022-03-08T18:06:23+08:00</updated>
+    <updated>2022-03-09T10:43:24+08:00</updated>
     <author>
         <name>qbhy</name>
     </author>
     <id>https://goal-web.com</id>
 
+    <entry>
+        <title>Goal - 快速开始</title>
+        <author>
+            <name>qbhy</name>
+        </author>
+        <link href="https://goal-web.com/goal-kuai-su-kai-shi.html"/>
+        <id>https://goal-web.com/goal-kuai-su-kai-shi.html</id>
+
+        <updated>2022-03-09T10:43:24+08:00</updated>
+            <summary>
+                <![CDATA[
+                    要求 - requirements go 1.17+ make (可选) 下载 - download $ git clone https://github.com/goal-web/goal &amp;&amp; cd goal 启动 - start $ make run # or $ go mod tidy &amp;&amp; go run main.go run goal 程序编译后运行方式是 ./goal run ，run 只是一个定义好的 goal cli 命令 $ curl&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h2 id="要求---requirements">要求 - requirements</h2>
+<ul>
+<li>go 1.17+</li>
+<li>make (可选)</li>
+</ul>
+<h2 id="下载---download">下载 - download</h2>
+<pre><code class="language-sh">$ git clone https://github.com/goal-web/goal &amp;&amp; cd goal
+</code></pre>
+<h2 id="启动---start">启动 - start</h2>
+<pre><code class="language-sh">$ make run
+# or
+$ go mod tidy &amp;&amp; go run main.go run
+</code></pre>
+<blockquote>
+<p>goal 程序编译后运行方式是 ./goal run ，run 只是一个定义好的 goal cli 命令</p>
+</blockquote>
+<h2 id="访问---visit">访问 - visit</h2>
+<pre><code class="language-sh">$ curl localhost:8008
+</code></pre>
+<blockquote>
+<p>hello, goal.</p>
+</blockquote>
+
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Goal 组件</title>
         <author>
@@ -17,7 +59,7 @@
         <link href="https://goal-web.com/goal-features.html"/>
         <id>https://goal-web.com/goal-features.html</id>
 
-        <updated>2022-03-08T18:06:23+08:00</updated>
+        <updated>2022-03-08T18:14:22+08:00</updated>
             <summary>
                 <![CDATA[
                     核心组件 鉴于部分朋友看到 goal 长长的组件列表后，认为 goal 是个重型框架，许多场景不适合使用。我认为有必要说明一下，goal 的组件搭配相当灵活，除了核心组件之外的其他组件都是可选的，包括除支持库外的所有主要组件。goal 允许你自由组装你的 goal 应用，例如 console + database 可以写一个数据库迁移应用，console + email 可以写一个邮件发送工具，http + database 可以写一个 CURD 应用，以此类推，你可以通过各种组合来完善你的应用，同时 goal 也提供了一个默认的 goal 应用模板 contracts - 契约 container - 容器 application - 应用 config - 配置 主要组件 supports - 各种支持库和工具库 pipeline - 洋葱模型管道&hellip;

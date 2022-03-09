@@ -10,6 +10,20 @@
     },
     "items": [
         {
+            "id": "https://goal-web.com/goal-kuai-su-kai-shi.html",
+            "url": "https://goal-web.com/goal-kuai-su-kai-shi.html",
+            "title": "Goal - 快速开始",
+            "summary": "要求 - requirements go 1.17+ make (可选) 下载 - download $ git clone https://github.com/goal-web/goal &amp;&amp; cd goal 启动 - start $ make run # or $ go mod tidy &amp;&amp; go run main.go run goal 程序编译后运行方式是 ./goal run ，run 只是一个定义好的 goal cli 命令 $ curl&hellip;",
+            "content_html": "<h2 id=\"要求---requirements\">要求 - requirements</h2>\n<ul>\n<li>go 1.17+</li>\n<li>make (可选)</li>\n</ul>\n<h2 id=\"下载---download\">下载 - download</h2>\n<pre><code class=\"language-sh\">$ git clone https://github.com/goal-web/goal &amp;&amp; cd goal\n</code></pre>\n<h2 id=\"启动---start\">启动 - start</h2>\n<pre><code class=\"language-sh\">$ make run\n# or\n$ go mod tidy &amp;&amp; go run main.go run\n</code></pre>\n<blockquote>\n<p>goal 程序编译后运行方式是 ./goal run ，run 只是一个定义好的 goal cli 命令</p>\n</blockquote>\n<h2 id=\"访问---visit\">访问 - visit</h2>\n<pre><code class=\"language-sh\">$ curl localhost:8008\n</code></pre>\n<blockquote>\n<p>hello, goal.</p>\n</blockquote>\n",
+            "author": {
+                "name": "qbhy"
+            },
+            "tags": [
+            ],
+            "date_published": "2022-03-09T10:42:37+08:00",
+            "date_modified": "2022-03-09T10:43:24+08:00"
+        },
+        {
             "id": "https://goal-web.com/goal-features.html",
             "url": "https://goal-web.com/goal-features.html",
             "title": "Goal 组件",
@@ -21,7 +35,7 @@
             "tags": [
             ],
             "date_published": "2022-03-08T16:39:59+08:00",
-            "date_modified": "2022-03-08T18:06:23+08:00"
+            "date_modified": "2022-03-08T18:14:22+08:00"
         },
         {
             "id": "https://goal-web.com/join-goal-2.html",
