@@ -1,0 +1,335 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>QueryBuilder - 查询构造器组件 - goal-web</title><meta name="description" content="Goal/QueryBuilder Goal 的数据库查询构造器为创建和运行数据库查询提供了一个方便的接口。它可以用于支持大部分数据库操作，并与 Goal 支持的所有数据库系统完美运行。并且大量参考了 Laravel 的查询构造器设计，你几乎可以在这个库找到所有与 Laravel 对应的方法。 Goal 的查询构造器实现了类似 PDO 参数绑定的形式，来保护您的应用程序免受 SQL 注入攻击。因此不必清理因参数绑定而传入的字符串。查询构造器会返回你想要的 SQL 语句以及绑定参数。 $ go get github.com/goal-web/querybuilder 运行数据库查询 - usage 根据条件从表中检索出数据 - query 你可以使用 NewQuery 方法来开始查询。该方法为给定的表返回一个查询构造器实例，允许你在查询上链式调用更多的约束，最后使用 get 方法获取结果： package querybuilder import ( &quot;fmt&quot; ) func TestSimpleQueryBuilder() { query := NewQuery(&quot;users&quot;). Where(&quot;name&quot;,&hellip;"><meta name="generator" content="Publii Open-Source CMS for Static Site"><link rel="canonical" href="https://goal-web.com/querybuilder-cha-xun-gou-zao-qi-zu-jian.html"><link rel="alternate" type="application/atom+xml" href="https://goal-web.com/feed.xml"><link rel="alternate" type="application/json" href="https://goal-web.com/feed.json"><meta property="og:title" content="QueryBuilder - 查询构造器组件"><meta property="og:site_name" content="goal-web"><meta property="og:description" content="Goal/QueryBuilder Goal 的数据库查询构造器为创建和运行数据库查询提供了一个方便的接口。它可以用于支持大部分数据库操作，并与 Goal 支持的所有数据库系统完美运行。并且大量参考了 Laravel 的查询构造器设计，你几乎可以在这个库找到所有与 Laravel 对应的方法。 Goal 的查询构造器实现了类似 PDO 参数绑定的形式，来保护您的应用程序免受 SQL 注入攻击。因此不必清理因参数绑定而传入的字符串。查询构造器会返回你想要的 SQL 语句以及绑定参数。 $ go get github.com/goal-web/querybuilder 运行数据库查询 - usage 根据条件从表中检索出数据 - query 你可以使用 NewQuery 方法来开始查询。该方法为给定的表返回一个查询构造器实例，允许你在查询上链式调用更多的约束，最后使用 get 方法获取结果： package querybuilder import ( &quot;fmt&quot; ) func TestSimpleQueryBuilder() { query := NewQuery(&quot;users&quot;). Where(&quot;name&quot;,&hellip;"><meta property="og:url" content="https://goal-web.com/querybuilder-cha-xun-gou-zao-qi-zu-jian.html"><meta property="og:type" content="article"><style>:root{--body-font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";--heading-font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";--logo-font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";--menu-font:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"}</style><link rel="stylesheet" href="https://goal-web.com/assets/css/style.css?v=6550b2a02d8f18f549c54c93911ace65"><script type="application/ld+json">{"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://goal-web.com/querybuilder-cha-xun-gou-zao-qi-zu-jian.html"},"headline":"QueryBuilder - 查询构造器组件","datePublished":"2022-03-11T00:12","dateModified":"2022-03-11T00:12","description":"Goal/QueryBuilder Goal 的数据库查询构造器为创建和运行数据库查询提供了一个方便的接口。它可以用于支持大部分数据库操作，并与 Goal 支持的所有数据库系统完美运行。并且大量参考了 Laravel 的查询构造器设计，你几乎可以在这个库找到所有与 Laravel 对应的方法。 Goal 的查询构造器实现了类似 PDO 参数绑定的形式，来保护您的应用程序免受 SQL 注入攻击。因此不必清理因参数绑定而传入的字符串。查询构造器会返回你想要的 SQL 语句以及绑定参数。 $ go get github.com/goal-web/querybuilder 运行数据库查询 - usage 根据条件从表中检索出数据 - query 你可以使用 NewQuery 方法来开始查询。该方法为给定的表返回一个查询构造器实例，允许你在查询上链式调用更多的约束，最后使用 get 方法获取结果： package querybuilder import ( &quot;fmt&quot; ) func TestSimpleQueryBuilder() { query := NewQuery(&quot;users&quot;). Where(&quot;name&quot;,&hellip;","author":{"@type":"Person","name":"qbhy"},"publisher":{"@type":"Organization","name":"qbhy"}}</script></head><body><div class="site-container"><header class="top" id="js-header"><a class="logo" href="https://goal-web.com/">goal-web</a><nav class="navbar js-navbar"><button class="navbar__toggle js-toggle" aria-label="Menu" aria-haspopup="true" aria-expanded="false"><span class="navbar__toggle-box"><span class="navbar__toggle-inner">Menu</span></span></button><ul class="navbar__menu"><li><a href="https://github.com/goal-web/goal" title="github" target="_blank" rel="_blank">github仓库</a></li><li><a href="https://goal-web.com/goal-kuai-su-kai-shi.html" target="_self">快速开始</a></li><li><a href="https://goal-web.com/goal-features.html" target="_self">组件</a></li><li><a href="https://goal-web.com/join-goal.html" target="_self">加入我们</a></li></ul></nav><div class="search"><div class="search__overlay js-search-overlay"><div class="search__overlay-inner"><form action="https://goal-web.com/search.html" class="search__form"><input class="search__input js-search-input" type="search" name="q" placeholder="search..." aria-label="search..." autofocus="autofocus"></form><button class="search__close js-search-close" aria-label="Close">Close</button></div></div><button class="search__btn js-search-btn" aria-label="Search"><svg role="presentation" focusable="false"><use xlink:href="https://goal-web.com/assets/svg/svg-map.svg#search"/></svg></button></div></header><main><article class="post"><div class="hero"><header class="hero__content"><div class="wrapper"><div class="post__meta"><time datetime="2022-03-11T00:12">三月 11, 2022</time></div><h1>QueryBuilder - 查询构造器组件</h1><div class="post__meta post__meta--author"><a href="https://goal-web.com/zuo-zhe/qbhy/" class="feed__author invert">qbhy</a></div></div></header></div><div class="wrapper post__entry"><h1 id="goalquerybuilder">Goal/QueryBuilder</h1><p>Goal 的数据库查询构造器为创建和运行数据库查询提供了一个方便的接口。它可以用于支持大部分数据库操作，并与 Goal 支持的所有数据库系统完美运行。并且大量参考了 <code>Laravel</code> 的查询构造器设计，你几乎可以在这个库找到所有与 <code>Laravel</code> 对应的方法。</p><p>Goal 的查询构造器实现了类似 PDO 参数绑定的形式，来保护您的应用程序免受 SQL 注入攻击。因此不必清理因参数绑定而传入的字符串。查询构造器会返回你想要的 SQL 语句以及绑定参数。</p><h2 id="安装---install">安装 - install</h2><pre><code class="language-bash">$ go get github.com/goal-web/querybuilder
+</code></pre><h2 id="运行数据库查询---usage">运行数据库查询 - usage</h2><h3 id="根据条件从表中检索出数据---query">根据条件从表中检索出数据 - query</h3><p>你可以使用 <code>NewQuery</code> 方法来开始查询。该方法为给定的表返回一个查询构造器实例，允许你在查询上链式调用更多的约束，最后使用 get 方法获取结果：</p><pre><code class="language-golang">package querybuilder
+import (
+    &quot;fmt&quot;
+)
+
+func TestSimpleQueryBuilder() {
+    query := NewQuery(&quot;users&quot;).
+        Where(&quot;name&quot;, &quot;qbhy&quot;).
+        Where(&quot;age&quot;, &quot;&gt;&quot;, 18).
+        Where(&quot;gender&quot;, &quot;!=&quot;, 0).
+        OrWhere(&quot;amount&quot;, &quot;&gt;=&quot;, 100).
+        WhereIsNull(&quot;avatar&quot;)
+    
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    // select * from users where name = ? and age &gt; ? and gender != ? and avatar is null or amount &gt;= ?
+    // [qbhy 18 0 100]
+}
+</code></pre><blockquote><p>你也可以通过 <code>SelectSql</code> 方法一次性获取你想要的参数。 例如：sql, bindings := NewQuery(“users”).Where(“gender”, 1).SelectSql()</p></blockquote><h3 id="插入语句---insert">插入语句 - insert</h3><p>你可以通过 <code>InsertSql</code> 或者 <code>CreateSql</code> 很方便的生成插入语句。</p><pre><code class="language-golang">package querybuilder
+
+import (
+    &quot;fmt&quot;
+    &quot;github.com/goal-web/contracts&quot;
+)
+
+// TestInsertSql 批量插入数据
+func TestInsertSql() {
+    sql, bindings := NewQuery(&quot;users&quot;).InsertSql([]contracts.Fields{
+        {&quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000},
+        {&quot;name&quot;: &quot;goal&quot;, &quot;age&quot;: 18, &quot;money&quot;: 10},
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    // insert into users (name,age,money) values (?,?,?),(?,?,?)
+    // [qbhy 18 100000000000 goal 18 10]
+}
+// TestCreateSql 插入单个数据
+func TestCreateSql() {
+    sql, bindings := NewQuery(&quot;users&quot;).CreateSql(contracts.Fields{
+        &quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000,
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings) 
+    // insert into users (name,age,money) values (?,?,?) 
+    //[qbhy 18 100000000000]
+}
+</code></pre><h3 id="更新语句">更新语句</h3><p>你可以通过 <code>UpdateSql</code> 很方便的生成更新语句。</p><pre><code class="language-golang">package querybuilder
+
+import (
+    &quot;fmt&quot;
+    &quot;github.com/goal-web/contracts&quot;
+)
+
+func TestUpdateSql() {
+    sql, bindings := NewQuery(&quot;users&quot;).Where(&quot;id&quot;, &quot;&gt;&quot;, 1).UpdateSql(contracts.Fields{
+        &quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000,
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    // update users set money = ?,name = ?,age = ? where id &gt; ?
+    // [qbhy 18 100000000000 1]
+}
+</code></pre><h3 id="删除语句---delete">删除语句 - delete</h3><p>你可以通过 <code>DeleteSql</code> 很方便的生成删除语句。</p><pre><code class="language-golang">package querybuilder
+
+import (
+    &quot;fmt&quot;
+)
+
+func TestDeleteSql() {
+    sql, bindings := NewQuery(&quot;users&quot;).Where(&quot;id&quot;, &quot;&gt;&quot;, 1).DeleteSql()
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    // delete from users where id &gt; ?
+    // [1]
+}
+</code></pre><h2 id="更多高级用法---more">更多高级用法 - more</h2><p>支持 where嵌套、子查询、连表、连子查询等更多高级用法</p><pre><code class="language-go">package tests
+
+import (
+    &quot;fmt&quot;
+    &quot;github.com/goal-web/contracts&quot;
+    builder &quot;github.com/goal-web/querybuilder&quot;
+    &quot;github.com/stretchr/testify/assert&quot;
+    &quot;github.com/xwb1989/sqlparser&quot;
+    &quot;testing&quot;
+)
+
+func TestSimpleQueryBuilder(t *testing.T) {
+    query := builder.NewQuery(&quot;users&quot;)
+    query.Where(&quot;name&quot;, &quot;qbhy&quot;).
+        Where(&quot;age&quot;, &quot;&gt;&quot;, 18).
+        Where(&quot;gender&quot;, &quot;!=&quot;, 0, contracts.Or).
+        OrWhere(&quot;amount&quot;, &quot;&gt;=&quot;, 100).
+        WhereIsNull(&quot;avatar&quot;)
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestJoinQueryBuilder(t *testing.T) {
+    query := builder.NewQuery(&quot;users&quot;).
+        Join(&quot;accounts&quot;, &quot;accounts.user_id&quot;, &quot;=&quot;, &quot;users.id&quot;).
+        JoinSub(func() contracts.QueryBuilder {
+            return builder.NewQuery(&quot;users&quot;).
+                Where(&quot;level&quot;, &quot;&gt;&quot;, 5)
+        }, &quot;vip_users&quot;, &quot;vip_users.id&quot;, &quot;=&quot;, &quot;users.id&quot;).
+        //WhereIn(&quot;gender&quot;, &quot;1,2&quot;).
+        WhereIn(&quot;gender&quot;, []int{1, 2})
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestFromSubQueryBuilder(t *testing.T) {
+    query := builder.FromSub(func() contracts.QueryBuilder {
+        return builder.NewQuery(&quot;users&quot;).
+            Where(&quot;level&quot;, &quot;&gt;&quot;, 5)
+    }, &quot;vip_users&quot;).
+        //WhereIn(&quot;gender&quot;, &quot;1,2&quot;).
+        WhereIn(&quot;gender&quot;, []int{1, 2})
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestDistinctQueryBuilder(t *testing.T) {
+    query := builder.NewQuery(&quot;users&quot;).
+        Distinct().
+        Join(&quot;accounts&quot;, &quot;accounts.user_id&quot;, &quot;=&quot;, &quot;users.id&quot;).
+        Where(&quot;gender&quot;, &quot;!=&quot;, 0, contracts.Or)
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestUpdateSql(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).Where(&quot;id&quot;, &quot;&gt;&quot;, 1).UpdateSql(contracts.Fields{
+        &quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000,
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestSelectSub(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).Where(&quot;id&quot;, &quot;&gt;&quot;, 1).
+        SelectSub(func() contracts.QueryBuilder {
+            return builder.NewQuery(&quot;accounts&quot;).Where(&quot;accounts.id&quot;, &quot;users.id&quot;).WithCount()
+        }, &quot;accounts_count&quot;).
+        Join(&quot;accounts&quot;, &quot;accounts.user_id&quot;, &quot;=&quot;, &quot;users.id&quot;).
+        SelectSql()
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestWhereNotExists(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).
+        Where(&quot;id&quot;, &quot;&gt;&quot;, 1).
+        WhereNotExists(func() contracts.QueryBuilder {
+            return builder.NewQuery(&quot;users&quot;).Select(&quot;id&quot;).Where(&quot;age&quot;, &quot;&gt;&quot;, 18)
+        }).
+        SelectSql()
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestCount(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).Where(&quot;id&quot;, &quot;&gt;&quot;, 1).WithCount(&quot;id&quot;).SelectSql()
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestDeleteSql(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).Where(&quot;id&quot;, &quot;&gt;&quot;, 1).DeleteSql()
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestInsertSql(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).InsertSql([]contracts.Fields{
+        {&quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000},
+        {&quot;name&quot;: &quot;goal&quot;, &quot;age&quot;: 18, &quot;money&quot;: 10},
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestInsertIgnoreSql(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).InsertIgnoreSql([]contracts.Fields{
+        {&quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000},
+        {&quot;name&quot;: &quot;goal&quot;, &quot;age&quot;: 18, &quot;money&quot;: 10},
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestInsertReplaceSql(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).InsertReplaceSql([]contracts.Fields{
+        {&quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000},
+        {&quot;name&quot;: &quot;goal&quot;, &quot;age&quot;: 18, &quot;money&quot;: 10},
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+
+func TestCreateSql(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).CreateSql(contracts.Fields{
+        &quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000,
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+
+func TestBetweenQueryBuilder(t *testing.T) {
+    query := builder.NewQuery(&quot;users&quot;).
+        Join(&quot;accounts&quot;, &quot;accounts.user_id&quot;, &quot;=&quot;, &quot;users.id&quot;).
+        WhereFunc(func(b contracts.QueryBuilder) {
+            // 高瘦
+            b.WhereBetween(&quot;height&quot;, []int{180, 200}).
+                WhereBetween(&quot;weight&quot;, []int{50, 60}).
+                WhereIn(&quot;id&quot;, []int{1, 2, 3, 4, 5})
+        }).OrWhereFunc(func(b contracts.QueryBuilder) {
+        // 矮胖
+        b.WhereBetween(&quot;height&quot;, []int{140, 160}).
+            WhereBetween(&quot;weight&quot;, []int{70, 140}).
+            WhereNotBetween(&quot;id&quot;, []int{1, 5})
+    })
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestUnionQueryBuilder(t *testing.T) {
+    query := builder.NewQuery(&quot;users&quot;).
+        Join(&quot;accounts&quot;, &quot;accounts.user_id&quot;, &quot;=&quot;, &quot;users.id&quot;).
+        Where(&quot;gender&quot;, &quot;!=&quot;, 0, contracts.Or).
+        UnionByProvider(
+            func() contracts.QueryBuilder {
+                return builder.NewQuery(&quot;peoples&quot;).Where(&quot;id&quot;, 5)
+            },
+        ).
+        Union(
+            builder.NewQuery(&quot;accounts&quot;),
+        ).
+        UnionAll(
+            builder.NewQuery(&quot;members&quot;),
+        ).
+        UnionAll(
+            builder.NewQuery(&quot;students&quot;),
+        )
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestComplexQueryBuilder(t *testing.T) {
+
+    query := builder.NewQuery(&quot;users&quot;)
+    query.
+        FromSub(func() contracts.QueryBuilder {
+            return builder.NewQuery(&quot;users&quot;).Where(&quot;amount&quot;, &quot;&gt;&quot;, 1000)
+        }, &quot;rich_users&quot;).
+        Join(&quot;accounts&quot;, &quot;users.id&quot;, &quot;=&quot;, &quot;accounts.user_id&quot;).
+        WhereFunc(func(b contracts.QueryBuilder) {
+            b.Where(&quot;name&quot;, &quot;goal&quot;).
+                Where(&quot;age&quot;, &quot;&lt;&quot;, &quot;18&quot;).
+                WhereIn(&quot;id&quot;, []int{1, 2})
+        }).
+        OrWhereFunc(func(b contracts.QueryBuilder) {
+            b.Where(&quot;name&quot;, &quot;qbhy&quot;).
+                Where(&quot;age&quot;, &quot;&gt;&quot;, 18).
+                WhereNotIn(&quot;id&quot;, []int{1, 2})
+        }).
+        OrWhereNotIn(&quot;id&quot;, []int{6, 7}).
+        OrWhereNotNull(&quot;id&quot;).
+        OrderByDesc(&quot;age&quot;).
+        OrderBy(&quot;id&quot;).
+        GroupBy(&quot;country&quot;)
+
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestGroupByQueryBuilder(t *testing.T) {
+
+    query := builder.
+        FromSub(func() contracts.QueryBuilder {
+            return builder.NewQuery(&quot;users&quot;).Where(&quot;amount&quot;, &quot;&gt;&quot;, 1000)
+        }, &quot;rich_users&quot;).
+        GroupBy(&quot;country&quot;).
+        Having(&quot;count(rich_users.id)&quot;, &quot;&lt;&quot;, 1000).   // 人口少
+        OrHaving(&quot;sum(rich_users.amount)&quot;, &quot;&lt;&quot;, 100) // 或者穷
+
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+</code></pre><p>正如开头所说，你可以在这里找到几乎所有与 <code>Laravel</code> 对应的查询构造器方法，也可以在 <a href="https://github.com/goal-web/querybuilder/blob/master/database_test.go">测试文件</a> 中找到更多用法</p><p><a href="https://github.com/goal-web/querybuilder">goal/query-builder</a><br><a href="mailto:&#x71;&#98;&#104;&#121;&#x30;&#x37;&#x31;&#53;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;">&#x71;&#98;&#104;&#121;&#x30;&#x37;&#x31;&#53;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;</a></p></div><footer class="wrapper post__footer"><p class="post__last-updated">This article was updated on 三月 11, 2022</p><ul class="post__tag"><li><a href="https://goal-web.com/biao-qian/goalzu-jian/">goal组件</a></li></ul><div class="post__share"></div><div class="post__bio bio"><div class="bio__info"><h3 class="bio__name"><a href="https://goal-web.com/zuo-zhe/qbhy/" class="invert" rel="author">qbhy</a></h3></div></div></footer></article><nav class="post__nav"><div class="post__nav-inner"><div class="post__nav-prev"><svg width="1.041em" height="0.416em" aria-hidden="true"><use xlink:href="https://goal-web.com/assets/svg/svg-map.svg#arrow-prev"/></svg> <a href="https://goal-web.com/auth-zu-jian.html" class="invert post__nav-link" rel="prev"><span>Previous</span> Auth 组件</a></div></div></nav></main><footer class="footer"><div class="footer__social"></div><div class="footer__copyright"><p>Powered by Publii</p></div><button class="footer__bttop js-footer__bttop" aria-label="Back to top"><svg><title>Back to top</title><use xlink:href="https://goal-web.com/assets/svg/svg-map.svg#toparrow"/></svg></button></footer></div><script>window.publiiThemeMenuConfig = {    
+        mobileMenuMode: 'sidebar',
+        animationSpeed: 300,
+        submenuWidth: 'auto',
+        doubleClickTime: 500,
+        mobileMenuExpandableSubmenus: true, 
+        relatedContainerForOverlayMenuSelector: '.top',
+   };</script><script defer="defer" src="https://goal-web.com/assets/js/scripts.min.js?v=48e9576b9741cf2a93ab25c5689c9f5d"></script><script>var images = document.querySelectorAll('img[loading]');
+
+        for (var i = 0; i < images.length; i++) {
+            if (images[i].complete) {
+                images[i].classList.add('is-loaded');
+            } else {
+                images[i].addEventListener('load', function () {
+                    this.classList.add('is-loaded');
+                }, false);
+            }
+        }</script></body></html>

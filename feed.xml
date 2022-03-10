@@ -3,12 +3,377 @@
     <title>goal-web</title>
     <link href="https://goal-web.com/feed.xml" rel="self" />
     <link href="https://goal-web.com" />
-    <updated>2022-03-11T00:00:46+08:00</updated>
+    <updated>2022-03-11T00:12:54+08:00</updated>
     <author>
         <name>qbhy</name>
     </author>
     <id>https://goal-web.com</id>
 
+    <entry>
+        <title>QueryBuilder - 查询构造器组件</title>
+        <author>
+            <name>qbhy</name>
+        </author>
+        <link href="https://goal-web.com/querybuilder-cha-xun-gou-zao-qi-zu-jian.html"/>
+        <id>https://goal-web.com/querybuilder-cha-xun-gou-zao-qi-zu-jian.html</id>
+            <category term="goal组件"/>
+
+        <updated>2022-03-11T00:12:54+08:00</updated>
+            <summary>
+                <![CDATA[
+                    Goal/QueryBuilder Goal 的数据库查询构造器为创建和运行数据库查询提供了一个方便的接口。它可以用于支持大部分数据库操作，并与 Goal 支持的所有数据库系统完美运行。并且大量参考了 Laravel 的查询构造器设计，你几乎可以在这个库找到所有与 Laravel 对应的方法。 Goal 的查询构造器实现了类似 PDO 参数绑定的形式，来保护您的应用程序免受 SQL 注入攻击。因此不必清理因参数绑定而传入的字符串。查询构造器会返回你想要的 SQL 语句以及绑定参数。 $ go get github.com/goal-web/querybuilder 运行数据库查询 - usage 根据条件从表中检索出数据 - query 你可以使用 NewQuery 方法来开始查询。该方法为给定的表返回一个查询构造器实例，允许你在查询上链式调用更多的约束，最后使用 get 方法获取结果： package querybuilder import ( &quot;fmt&quot; ) func TestSimpleQueryBuilder() { query := NewQuery(&quot;users&quot;). Where(&quot;name&quot;,&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h1 id="goalquerybuilder">Goal/QueryBuilder</h1>
+<p>Goal 的数据库查询构造器为创建和运行数据库查询提供了一个方便的接口。它可以用于支持大部分数据库操作，并与 Goal 支持的所有数据库系统完美运行。并且大量参考了 <code>Laravel</code> 的查询构造器设计，你几乎可以在这个库找到所有与 <code>Laravel</code> 对应的方法。</p>
+<p>Goal 的查询构造器实现了类似 PDO 参数绑定的形式，来保护您的应用程序免受 SQL 注入攻击。因此不必清理因参数绑定而传入的字符串。查询构造器会返回你想要的 SQL 语句以及绑定参数。</p>
+<h2 id="安装---install">安装 - install</h2>
+<pre><code class="language-bash">$ go get github.com/goal-web/querybuilder
+</code></pre>
+<h2 id="运行数据库查询---usage">运行数据库查询 - usage</h2>
+<h3 id="根据条件从表中检索出数据---query">根据条件从表中检索出数据 - query</h3>
+<p>你可以使用 <code>NewQuery</code> 方法来开始查询。该方法为给定的表返回一个查询构造器实例，允许你在查询上链式调用更多的约束，最后使用 get 方法获取结果：</p>
+<pre><code class="language-golang">package querybuilder
+import (
+    &quot;fmt&quot;
+)
+
+func TestSimpleQueryBuilder() {
+    query := NewQuery(&quot;users&quot;).
+        Where(&quot;name&quot;, &quot;qbhy&quot;).
+        Where(&quot;age&quot;, &quot;&gt;&quot;, 18).
+        Where(&quot;gender&quot;, &quot;!=&quot;, 0).
+        OrWhere(&quot;amount&quot;, &quot;&gt;=&quot;, 100).
+        WhereIsNull(&quot;avatar&quot;)
+    
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    // select * from users where name = ? and age &gt; ? and gender != ? and avatar is null or amount &gt;= ?
+    // [qbhy 18 0 100]
+}
+</code></pre>
+<blockquote>
+<p>你也可以通过 <code>SelectSql</code> 方法一次性获取你想要的参数。
+例如：sql, bindings := NewQuery(“users”).Where(“gender”, 1).SelectSql()</p>
+</blockquote>
+<h3 id="插入语句---insert">插入语句 - insert</h3>
+<p>你可以通过 <code>InsertSql</code> 或者 <code>CreateSql</code> 很方便的生成插入语句。</p>
+<pre><code class="language-golang">package querybuilder
+
+import (
+    &quot;fmt&quot;
+    &quot;github.com/goal-web/contracts&quot;
+)
+
+// TestInsertSql 批量插入数据
+func TestInsertSql() {
+    sql, bindings := NewQuery(&quot;users&quot;).InsertSql([]contracts.Fields{
+        {&quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000},
+        {&quot;name&quot;: &quot;goal&quot;, &quot;age&quot;: 18, &quot;money&quot;: 10},
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    // insert into users (name,age,money) values (?,?,?),(?,?,?)
+    // [qbhy 18 100000000000 goal 18 10]
+}
+// TestCreateSql 插入单个数据
+func TestCreateSql() {
+    sql, bindings := NewQuery(&quot;users&quot;).CreateSql(contracts.Fields{
+        &quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000,
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings) 
+    // insert into users (name,age,money) values (?,?,?) 
+    //[qbhy 18 100000000000]
+}
+</code></pre>
+<h3 id="更新语句">更新语句</h3>
+<p>你可以通过 <code>UpdateSql</code> 很方便的生成更新语句。</p>
+<pre><code class="language-golang">package querybuilder
+
+import (
+    &quot;fmt&quot;
+    &quot;github.com/goal-web/contracts&quot;
+)
+
+func TestUpdateSql() {
+    sql, bindings := NewQuery(&quot;users&quot;).Where(&quot;id&quot;, &quot;&gt;&quot;, 1).UpdateSql(contracts.Fields{
+        &quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000,
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    // update users set money = ?,name = ?,age = ? where id &gt; ?
+    // [qbhy 18 100000000000 1]
+}
+</code></pre>
+<h3 id="删除语句---delete">删除语句 - delete</h3>
+<p>你可以通过 <code>DeleteSql</code> 很方便的生成删除语句。</p>
+<pre><code class="language-golang">package querybuilder
+
+import (
+    &quot;fmt&quot;
+)
+
+func TestDeleteSql() {
+    sql, bindings := NewQuery(&quot;users&quot;).Where(&quot;id&quot;, &quot;&gt;&quot;, 1).DeleteSql()
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    // delete from users where id &gt; ?
+    // [1]
+}
+</code></pre>
+<h2 id="更多高级用法---more">更多高级用法 - more</h2>
+<p>支持 where嵌套、子查询、连表、连子查询等更多高级用法</p>
+<pre><code class="language-go">package tests
+
+import (
+    &quot;fmt&quot;
+    &quot;github.com/goal-web/contracts&quot;
+    builder &quot;github.com/goal-web/querybuilder&quot;
+    &quot;github.com/stretchr/testify/assert&quot;
+    &quot;github.com/xwb1989/sqlparser&quot;
+    &quot;testing&quot;
+)
+
+func TestSimpleQueryBuilder(t *testing.T) {
+    query := builder.NewQuery(&quot;users&quot;)
+    query.Where(&quot;name&quot;, &quot;qbhy&quot;).
+        Where(&quot;age&quot;, &quot;&gt;&quot;, 18).
+        Where(&quot;gender&quot;, &quot;!=&quot;, 0, contracts.Or).
+        OrWhere(&quot;amount&quot;, &quot;&gt;=&quot;, 100).
+        WhereIsNull(&quot;avatar&quot;)
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestJoinQueryBuilder(t *testing.T) {
+    query := builder.NewQuery(&quot;users&quot;).
+        Join(&quot;accounts&quot;, &quot;accounts.user_id&quot;, &quot;=&quot;, &quot;users.id&quot;).
+        JoinSub(func() contracts.QueryBuilder {
+            return builder.NewQuery(&quot;users&quot;).
+                Where(&quot;level&quot;, &quot;&gt;&quot;, 5)
+        }, &quot;vip_users&quot;, &quot;vip_users.id&quot;, &quot;=&quot;, &quot;users.id&quot;).
+        //WhereIn(&quot;gender&quot;, &quot;1,2&quot;).
+        WhereIn(&quot;gender&quot;, []int{1, 2})
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestFromSubQueryBuilder(t *testing.T) {
+    query := builder.FromSub(func() contracts.QueryBuilder {
+        return builder.NewQuery(&quot;users&quot;).
+            Where(&quot;level&quot;, &quot;&gt;&quot;, 5)
+    }, &quot;vip_users&quot;).
+        //WhereIn(&quot;gender&quot;, &quot;1,2&quot;).
+        WhereIn(&quot;gender&quot;, []int{1, 2})
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestDistinctQueryBuilder(t *testing.T) {
+    query := builder.NewQuery(&quot;users&quot;).
+        Distinct().
+        Join(&quot;accounts&quot;, &quot;accounts.user_id&quot;, &quot;=&quot;, &quot;users.id&quot;).
+        Where(&quot;gender&quot;, &quot;!=&quot;, 0, contracts.Or)
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestUpdateSql(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).Where(&quot;id&quot;, &quot;&gt;&quot;, 1).UpdateSql(contracts.Fields{
+        &quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000,
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestSelectSub(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).Where(&quot;id&quot;, &quot;&gt;&quot;, 1).
+        SelectSub(func() contracts.QueryBuilder {
+            return builder.NewQuery(&quot;accounts&quot;).Where(&quot;accounts.id&quot;, &quot;users.id&quot;).WithCount()
+        }, &quot;accounts_count&quot;).
+        Join(&quot;accounts&quot;, &quot;accounts.user_id&quot;, &quot;=&quot;, &quot;users.id&quot;).
+        SelectSql()
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestWhereNotExists(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).
+        Where(&quot;id&quot;, &quot;&gt;&quot;, 1).
+        WhereNotExists(func() contracts.QueryBuilder {
+            return builder.NewQuery(&quot;users&quot;).Select(&quot;id&quot;).Where(&quot;age&quot;, &quot;&gt;&quot;, 18)
+        }).
+        SelectSql()
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestCount(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).Where(&quot;id&quot;, &quot;&gt;&quot;, 1).WithCount(&quot;id&quot;).SelectSql()
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestDeleteSql(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).Where(&quot;id&quot;, &quot;&gt;&quot;, 1).DeleteSql()
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestInsertSql(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).InsertSql([]contracts.Fields{
+        {&quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000},
+        {&quot;name&quot;: &quot;goal&quot;, &quot;age&quot;: 18, &quot;money&quot;: 10},
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestInsertIgnoreSql(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).InsertIgnoreSql([]contracts.Fields{
+        {&quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000},
+        {&quot;name&quot;: &quot;goal&quot;, &quot;age&quot;: 18, &quot;money&quot;: 10},
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+func TestInsertReplaceSql(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).InsertReplaceSql([]contracts.Fields{
+        {&quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000},
+        {&quot;name&quot;: &quot;goal&quot;, &quot;age&quot;: 18, &quot;money&quot;: 10},
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+
+func TestCreateSql(t *testing.T) {
+    sql, bindings := builder.NewQuery(&quot;users&quot;).CreateSql(contracts.Fields{
+        &quot;name&quot;: &quot;qbhy&quot;, &quot;age&quot;: 18, &quot;money&quot;: 100000000000,
+    })
+    fmt.Println(sql)
+    fmt.Println(bindings)
+    _, err := sqlparser.Parse(sql)
+    assert.Nil(t, err, err)
+}
+
+func TestBetweenQueryBuilder(t *testing.T) {
+    query := builder.NewQuery(&quot;users&quot;).
+        Join(&quot;accounts&quot;, &quot;accounts.user_id&quot;, &quot;=&quot;, &quot;users.id&quot;).
+        WhereFunc(func(b contracts.QueryBuilder) {
+            // 高瘦
+            b.WhereBetween(&quot;height&quot;, []int{180, 200}).
+                WhereBetween(&quot;weight&quot;, []int{50, 60}).
+                WhereIn(&quot;id&quot;, []int{1, 2, 3, 4, 5})
+        }).OrWhereFunc(func(b contracts.QueryBuilder) {
+        // 矮胖
+        b.WhereBetween(&quot;height&quot;, []int{140, 160}).
+            WhereBetween(&quot;weight&quot;, []int{70, 140}).
+            WhereNotBetween(&quot;id&quot;, []int{1, 5})
+    })
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestUnionQueryBuilder(t *testing.T) {
+    query := builder.NewQuery(&quot;users&quot;).
+        Join(&quot;accounts&quot;, &quot;accounts.user_id&quot;, &quot;=&quot;, &quot;users.id&quot;).
+        Where(&quot;gender&quot;, &quot;!=&quot;, 0, contracts.Or).
+        UnionByProvider(
+            func() contracts.QueryBuilder {
+                return builder.NewQuery(&quot;peoples&quot;).Where(&quot;id&quot;, 5)
+            },
+        ).
+        Union(
+            builder.NewQuery(&quot;accounts&quot;),
+        ).
+        UnionAll(
+            builder.NewQuery(&quot;members&quot;),
+        ).
+        UnionAll(
+            builder.NewQuery(&quot;students&quot;),
+        )
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestComplexQueryBuilder(t *testing.T) {
+
+    query := builder.NewQuery(&quot;users&quot;)
+    query.
+        FromSub(func() contracts.QueryBuilder {
+            return builder.NewQuery(&quot;users&quot;).Where(&quot;amount&quot;, &quot;&gt;&quot;, 1000)
+        }, &quot;rich_users&quot;).
+        Join(&quot;accounts&quot;, &quot;users.id&quot;, &quot;=&quot;, &quot;accounts.user_id&quot;).
+        WhereFunc(func(b contracts.QueryBuilder) {
+            b.Where(&quot;name&quot;, &quot;goal&quot;).
+                Where(&quot;age&quot;, &quot;&lt;&quot;, &quot;18&quot;).
+                WhereIn(&quot;id&quot;, []int{1, 2})
+        }).
+        OrWhereFunc(func(b contracts.QueryBuilder) {
+            b.Where(&quot;name&quot;, &quot;qbhy&quot;).
+                Where(&quot;age&quot;, &quot;&gt;&quot;, 18).
+                WhereNotIn(&quot;id&quot;, []int{1, 2})
+        }).
+        OrWhereNotIn(&quot;id&quot;, []int{6, 7}).
+        OrWhereNotNull(&quot;id&quot;).
+        OrderByDesc(&quot;age&quot;).
+        OrderBy(&quot;id&quot;).
+        GroupBy(&quot;country&quot;)
+
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+
+func TestGroupByQueryBuilder(t *testing.T) {
+
+    query := builder.
+        FromSub(func() contracts.QueryBuilder {
+            return builder.NewQuery(&quot;users&quot;).Where(&quot;amount&quot;, &quot;&gt;&quot;, 1000)
+        }, &quot;rich_users&quot;).
+        GroupBy(&quot;country&quot;).
+        Having(&quot;count(rich_users.id)&quot;, &quot;&lt;&quot;, 1000).   // 人口少
+        OrHaving(&quot;sum(rich_users.amount)&quot;, &quot;&lt;&quot;, 100) // 或者穷
+
+    fmt.Println(query.ToSql())
+    fmt.Println(query.GetBindings())
+    _, err := sqlparser.Parse(query.ToSql())
+    assert.Nil(t, err, err)
+}
+</code></pre>
+<p>正如开头所说，你可以在这里找到几乎所有与 <code>Laravel</code> 对应的查询构造器方法，也可以在 <a href="https://github.com/goal-web/querybuilder/blob/master/database_test.go">测试文件</a> 中找到更多用法</p>
+<p><a href="https://github.com/goal-web/querybuilder">goal/query-builder</a><br><a href="mailto:&#x71;&#98;&#104;&#121;&#x30;&#x37;&#x31;&#53;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;">&#x71;&#98;&#104;&#121;&#x30;&#x37;&#x31;&#53;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;</a></p>
+
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Auth 组件</title>
         <author>
@@ -170,7 +535,7 @@ func ApiRoutes(router contracts.Router) {
 <p>这部分内容比较多，这里暂时不展开讲，后面会专门录视频介绍，欢迎大家点赞订阅</p>
 <h3 id="在-goal-之外的框架使用---use-in-frameworks-other-than-goal">在 goal 之外的框架使用 - use in frameworks other than goal</h3>
 <p>这部分内容比较多，这里暂时不展开讲，后面会专门录视频介绍，欢迎大家点赞订阅</p>
-<p><a href="https://github.com/goal-web/goal">goal-web</a><br><a href="https://github.com/goal-web/auth">goal-web/auth</a><br><a href="mailto:&#x71;&#x62;&#x68;&#x79;&#48;&#55;&#x31;&#x35;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#x6d;">&#x71;&#x62;&#x68;&#x79;&#48;&#55;&#x31;&#x35;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#x6d;</a></p>
+<p><a href="https://github.com/goal-web/goal">goal-web</a><br><a href="https://github.com/goal-web/auth">goal-web/auth</a><br><a href="mailto:&#x71;&#x62;&#x68;&#x79;&#x30;&#x37;&#49;&#53;&#64;&#x71;&#113;&#46;&#99;&#111;&#109;">&#x71;&#x62;&#x68;&#x79;&#x30;&#x37;&#49;&#53;&#64;&#x71;&#113;&#46;&#99;&#111;&#109;</a></p>
 
             ]]>
         </content>
