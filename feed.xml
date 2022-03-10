@@ -3,7 +3,7 @@
     <title>goal-web</title>
     <link href="https://goal-web.com/feed.xml" rel="self" />
     <link href="https://goal-web.com" />
-    <updated>2022-03-10T23:40:46+08:00</updated>
+    <updated>2022-03-10T23:54:24+08:00</updated>
     <author>
         <name>qbhy</name>
     </author>
@@ -129,8 +129,9 @@ $ go mod tidy &amp;&amp; go run main.go run
         </author>
         <link href="https://goal-web.com/goal-features.html"/>
         <id>https://goal-web.com/goal-features.html</id>
+            <category term="goal组件"/>
 
-        <updated>2022-03-08T18:14:22+08:00</updated>
+        <updated>2022-03-10T23:54:24+08:00</updated>
             <summary>
                 <![CDATA[
                     核心组件 鉴于部分朋友看到 goal 长长的组件列表后，认为 goal 是个重型框架，许多场景不适合使用。我认为有必要说明一下，goal 的组件搭配相当灵活，除了核心组件之外的其他组件都是可选的，包括除支持库外的所有主要组件。goal 允许你自由组装你的 goal 应用，例如 console + database 可以写一个数据库迁移应用，console + email 可以写一个邮件发送工具，http + database 可以写一个 CURD 应用，以此类推，你可以通过各种组合来完善你的应用，同时 goal 也提供了一个默认的 goal 应用模板 contracts - 契约 container - 容器 application - 应用 config - 配置 主要组件 supports - 各种支持库和工具库 pipeline - 洋葱模型管道&hellip;
