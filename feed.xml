@@ -3,12 +3,178 @@
     <title>goal-web</title>
     <link href="https://goal-web.com/feed.xml" rel="self" />
     <link href="https://goal-web.com" />
-    <updated>2022-03-10T23:54:24+08:00</updated>
+    <updated>2022-03-11T00:00:46+08:00</updated>
     <author>
         <name>qbhy</name>
     </author>
     <id>https://goal-web.com</id>
 
+    <entry>
+        <title>Auth 组件</title>
+        <author>
+            <name>qbhy</name>
+        </author>
+        <link href="https://goal-web.com/auth-zu-jian.html"/>
+        <id>https://goal-web.com/auth-zu-jian.html</id>
+            <category term="goal组件"/>
+
+        <updated>2022-03-11T00:00:46+08:00</updated>
+            <summary>
+                <![CDATA[
+                    Goal-web/auth goal-web/auth goal 框架的用户认证组件，你可以在 http、websocket 或者其他环境使用。 $ go get github.com/goal-web/auth 使用 - usage goal 的脚手架自带了绝大多数开发一个 web 应用的所需要的功能和组件，当然这也包括了认证组件。一般情况下，我们只需要在 .env 修改自己的认证配置即可，比如 jwt 驱动的 secret、session 驱动的 session_key。 默认情况下，config/auth.go 配置文件像下面那样，默认添加了 jwt、session 两个守卫配置 package config import ( &quot;github.com/goal-web/auth&quot; &quot;github.com/goal-web/contracts&quot; &quot;github.com/goal-web/example/models&quot; &quot;github.com/golang-jwt/jwt&quot; ) func init() { configs[&quot;auth&quot;] = func(env contracts.Env) interface{}&hellip;
+                ]]>
+            </summary>
+        <content type="html">
+            <![CDATA[
+                <h1 id="goal-webauth">Goal-web/auth</h1>
+<p><a href="https://github.com/goal-web/auth">goal-web/auth</a><br>goal 框架的用户认证组件，你可以在 <code>http</code>、<code>websocket</code> 或者其他环境使用。</p>
+<h2 id="安装---install">安装 - install</h2>
+<pre><code class="language-bash">$ go get github.com/goal-web/auth
+</code></pre>
+<h2 id="使用---usage">使用 - usage</h2>
+<p>goal 的脚手架自带了绝大多数开发一个 web 应用的所需要的功能和组件，当然这也包括了认证组件。一般情况下，我们只需要在 .env 修改自己的认证配置即可，比如 <code>jwt</code> 驱动的 secret、<code>session</code> 驱动的 session_key。</p>
+<h3 id="配置---config">配置 - config</h3>
+<p>默认情况下，<code>config/auth.go</code> 配置文件像下面那样，默认添加了 <code>jwt</code>、<code>session</code> 两个守卫配置</p>
+<pre><code class="language-go">package config
+
+import (
+    &quot;github.com/goal-web/auth&quot;
+    &quot;github.com/goal-web/contracts&quot;
+    &quot;github.com/goal-web/example/models&quot;
+    &quot;github.com/golang-jwt/jwt&quot;
+)
+
+func init() {
+    configs[&quot;auth&quot;] = func(env contracts.Env) interface{} {
+        return auth.Config{
+            Defaults: struct {
+                Guard string
+                User  string
+            }{
+                Guard: env.StringOption(&quot;auth.default&quot;, &quot;jwt&quot;), // 默认守卫
+                User:  env.StringOption(&quot;auth.user&quot;, &quot;db&quot;), // 默认用户提供者
+            },
+            Guards: map[string]contracts.Fields{
+                &quot;jwt&quot;: { // 守卫名称
+                    &quot;driver&quot;:   &quot;jwt&quot;, // 驱动,目前支持jwt、session
+                    &quot;secret&quot;:   env.GetString(&quot;auth.jwt.secret&quot;), // jwt 签名所需的 secret，不同的守卫建议不同的secret
+                    &quot;method&quot;:   jwt.SigningMethodHS256, // jwt 签名方法
+                    &quot;lifetime&quot;: 60 * 60 * 24, // token有效时长，单位：秒
+                    &quot;provider&quot;: &quot;db&quot;, // 用户提供者名
+                },
+                &quot;session&quot;: { // 守卫名称
+                    &quot;driver&quot;:      &quot;session&quot;, // 驱动名
+                    &quot;provider&quot;:    &quot;db&quot;, // 用户提供者名
+                    // session驱动所需的参数，如果应用需要配置多个session驱动的守卫，那么需要配置不一样的 session_key
+                    &quot;session_key&quot;: env.StringOption(&quot;auth.session.key&quot;, &quot;auth_session&quot;), 
+                },
+            },
+            Users: map[string]contracts.Fields{ // 用户提供者，目前只支持 db
+                &quot;db&quot;: { // 用户提供者名称
+                    &quot;driver&quot;: &quot;db&quot;, // 驱动名称
+                    &quot;model&quot;:  models.UserModel, // 用户模型
+                },
+            },
+        }
+    }
+}
+</code></pre>
+<p><code>.env</code> 的数据库相关配置</p>
+<pre><code class="language-bash">auth.jwt.secret=jwt_secret
+auth.default=jwt
+</code></pre>
+<h3 id="定义模型---define-a-model">定义模型 - define a model</h3>
+<p><code>app/models/user.go</code> 文件</p>
+<pre><code class="language-go">package models
+
+import (
+    &quot;github.com/goal-web/database/table&quot;
+    &quot;github.com/goal-web/supports/class&quot;
+)
+
+var (
+    UserModel = table.NewModel(class.Make(new(User)), &quot;users&quot;)
+)
+
+func UserQuery() *table.Table {
+    return table.FromModel(UserModel)
+}
+
+type User struct {
+    Id       string `json:&quot;id&quot;`
+    NickName string `json:&quot;name&quot;`
+}
+
+// GetId 实现了 contracts.Authenticatable 接口，此方法必不可少
+func (u User) GetId() string {
+    return u.Id
+}
+</code></pre>
+<h3 id="用法---method-of-use">用法 - method of use</h3>
+<pre><code class="language-go">package controllers
+
+import (
+    &quot;github.com/goal-web/contracts&quot;
+    &quot;github.com/goal-web/example/models&quot;
+)
+
+func LoginExample(guard contracts.Guard) contracts.Fields {
+    //  这是伪代码
+    user := models.UserQuery().First().(models.User)
+
+    return contracts.Fields{
+        &quot;token&quot;: guard.Login(user), // jwt 返回 token，session 返回 true
+    }
+}
+
+func GetCurrentUser(guard contracts.Guard) interface{} {
+    return contracts.Fields{
+        &quot;user&quot;: guard.User(), // 已登录返回用户模型，否则返回 nil
+    }
+}
+</code></pre>
+<h3 id="使用中间件">使用中间件</h3>
+<pre><code class="language-go">package routes
+
+import (
+    &quot;github.com/goal-web/auth&quot;
+    &quot;github.com/goal-web/contracts&quot;
+    &quot;github.com/goal-web/example/app/http/controllers&quot;
+    &quot;github.com/goal-web/session&quot;
+)
+
+func ApiRoutes(router contracts.Router) {
+    
+    v1 := router.Group(&quot;&quot;, session.StartSession)
+    
+    // 直接应用在路由上
+    v1.Get(&quot;/myself&quot;, controllers.GetCurrentUser, auth.Guard(&quot;jwt&quot;))
+    
+    // 应用在路由组上
+    authRouter := v1.Group(&quot;&quot;, auth.Guard(&quot;jwt&quot;))
+    authRouter.Get(&quot;/myself&quot;, controllers.GetCurrentUser, auth.Guard(&quot;jwt&quot;))
+
+}
+</code></pre>
+<h3 id="守卫api---guard-api">守卫API - guard api</h3>
+<pre><code class="language-go">type Guard interface {
+    Once(user Authenticatable)
+    User() Authenticatable
+    GetId() string
+    Check() bool
+    Guest() bool
+    Login(user Authenticatable) interface{}
+}
+</code></pre>
+<h3 id="扩展守卫和用户提供者---extension">扩展守卫和用户提供者 - extension</h3>
+<p>这部分内容比较多，这里暂时不展开讲，后面会专门录视频介绍，欢迎大家点赞订阅</p>
+<h3 id="在-goal-之外的框架使用---use-in-frameworks-other-than-goal">在 goal 之外的框架使用 - use in frameworks other than goal</h3>
+<p>这部分内容比较多，这里暂时不展开讲，后面会专门录视频介绍，欢迎大家点赞订阅</p>
+<p><a href="https://github.com/goal-web/goal">goal-web</a><br><a href="https://github.com/goal-web/auth">goal-web/auth</a><br><a href="mailto:&#x71;&#x62;&#x68;&#x79;&#x30;&#55;&#49;&#53;&#64;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x71;&#x62;&#x68;&#x79;&#x30;&#55;&#49;&#53;&#64;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
+
+            ]]>
+        </content>
+    </entry>
     <entry>
         <title>Goal 应用目录结构</title>
         <author>
