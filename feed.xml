@@ -3,7 +3,7 @@
     <title>goal-web</title>
     <link href="https://goal-web.com/feed.xml" rel="self" />
     <link href="https://goal-web.com" />
-    <updated>2022-03-09T10:54:48+08:00</updated>
+    <updated>2022-03-10T23:40:46+08:00</updated>
     <author>
         <name>qbhy</name>
     </author>
@@ -190,10 +190,10 @@ $ go mod tidy &amp;&amp; go run main.go run
         <author>
             <name>qbhy</name>
         </author>
-        <link href="https://goal-web.com/join-goal-2.html"/>
-        <id>https://goal-web.com/join-goal-2.html</id>
+        <link href="https://goal-web.com/join-goal.html"/>
+        <id>https://goal-web.com/join-goal.html</id>
 
-        <updated>2022-03-08T16:39:14+08:00</updated>
+        <updated>2022-03-10T23:40:46+08:00</updated>
             <summary>
                 <![CDATA[
                     参与项目 你可以通过以下方式参与到项目中来 微信群 QQ群 
