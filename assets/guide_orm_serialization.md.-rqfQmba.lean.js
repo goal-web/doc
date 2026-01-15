@@ -1,0 +1,1 @@
+import{_ as e,c as t,o as a}from"./chunks/framework.DYx9Zc8T.js";const p=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"guide/orm/serialization.md","filePath":"guide/orm/serialization.md"}'),i={name:"guide/orm/serialization.md"};function r(o,s,n,c,d,m){return a(),t("div")}const _=e(i,[["render",r]]);export{p as __pageData,_ as default};
