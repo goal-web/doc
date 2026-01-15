@@ -1,0 +1,4453 @@
+[
+  {
+    "id": "func:utils:CamelToColonHyphen",
+    "content": "Function CamelToColonHyphen in package utils: CamelToColonHyphen converts a CamelCase string to a string\nwhere the first transition is marked with a colon and subsequent\ntransitions are marked with hyphens. Consecutive uppercase letters\nare treated as a single word.\n",
+    "metadata": {
+      "name": "CamelToColonHyphen",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ConvertToCamelCase",
+    "content": "Function ConvertToCamelCase in package utils: ConvertToCamelCase 将蛇形字符串转换为大写开头的驼峰式字符串\n",
+    "metadata": {
+      "name": "ConvertToCamelCase",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:IsVowel",
+    "content": "Function IsVowel in package utils: IsVowel checks if a character is a vowel\n",
+    "metadata": {
+      "name": "IsVowel",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ModelNameToTable",
+    "content": "Function ModelNameToTable in package utils: ModelNameToTable converts a CamelCase model name to a snake_case table name\nwith the last word in plural form.\n",
+    "metadata": {
+      "name": "ModelNameToTable",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToPlural",
+    "content": "Function ToPlural in package utils: ToPlural converts a singular noun to its plural form\n",
+    "metadata": {
+      "name": "ToPlural",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:adapters:OssAdapter",
+    "content": "Function OssAdapter in package adapters: OssAdapter constructs an Aliyun OSS filesystem adapter\n",
+    "metadata": {
+      "name": "OssAdapter",
+      "package": "adapters",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:adapters:Oss:RefreshUrlIfExpired",
+    "content": "Method RefreshUrlIfExpired of type Oss in package adapters: RefreshUrlIfExpired 检测链接是否过期；若过期或接近过期（在 refreshThreshold 秒内），生成并返回新的链接，否则返回原链接\n支持 V1（Expires）与 V4（x-oss-date + x-oss-expires）两种签名格式判断\nrefreshThreshold: 在过期前多少秒内进行刷新（默认为 0，即仅在过期时刷新）\n",
+    "metadata": {
+      "name": "RefreshUrlIfExpired",
+      "package": "adapters",
+      "struct": "Oss",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:adapters:Oss:SetVisibility",
+    "content": "Method SetVisibility of type Oss in package adapters: SetVisibility: OSS doesn't support per-object ACL change via this adapter; noop\n",
+    "metadata": {
+      "name": "SetVisibility",
+      "package": "adapters",
+      "struct": "Oss",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:adapters:Oss:Url",
+    "content": "Method Url of type Oss in package adapters: Url 生成可下载链接：\n- 若为私有桶，返回带签名的限时下载链接（默认 ttl 或 3600s）\n- 若为公开桶，优先使用配置的 domain，否则使用 bucket.endpoint 组合\n",
+    "metadata": {
+      "name": "Url",
+      "package": "adapters",
+      "struct": "Oss",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:adapters:OssFileInfo",
+    "content": "Type OssFileInfo in package adapters: OssFileInfo implements fs.FileInfo for OSS objects\n",
+    "metadata": {
+      "name": "OssFileInfo",
+      "package": "adapters",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:adapters:Qiniu:PolicyToken",
+    "content": "Method PolicyToken of type Qiniu in package adapters: PolicyToken 创建自定义上传策略的令牌 see https://github.com/qiniu/go-sdk/blob/master/examples/create_uptoken.go\n",
+    "metadata": {
+      "name": "PolicyToken",
+      "package": "adapters",
+      "struct": "Qiniu",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:adapters:Qiniu:SetVisibility",
+    "content": "Method SetVisibility of type Qiniu in package adapters: SetVisibility 七牛不支持修改单个文件的可见性\n",
+    "metadata": {
+      "name": "SetVisibility",
+      "package": "adapters",
+      "struct": "Qiniu",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:Application",
+    "content": "Type Application in package contracts: Application 应用程序接口\napplication interface\n",
+    "metadata": {
+      "name": "Application",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:BloomFilterDriver",
+    "content": "Type BloomFilterDriver in package contracts: BloomFilterDriver 通过名称与配置信息获取布隆过滤器\nGet bloom filter by name and configuration info.\n",
+    "metadata": {
+      "name": "BloomFilterDriver",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:CacheStoreProvider",
+    "content": "Type CacheStoreProvider in package contracts: CacheStoreProvider 缓存存储提供者\ncache storage provider.\n",
+    "metadata": {
+      "name": "CacheStoreProvider",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:CommandProvider",
+    "content": "Type CommandProvider in package contracts: CommandProvider 命令提供者\ncommand provider.\n",
+    "metadata": {
+      "name": "CommandProvider",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:Component",
+    "content": "Type Component in package contracts: Component 可注入的类\ninjectable class.\n",
+    "metadata": {
+      "name": "Component",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:DBConnector",
+    "content": "Type DBConnector in package contracts: DBConnector 获取数据库连接实例\nGet a database connection instance.\n",
+    "metadata": {
+      "name": "DBConnector",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:FileSystemProvider",
+    "content": "Type FileSystemProvider in package contracts: FileSystemProvider 通过给定的名称和配置信息获取文件系统\nGet the filesystem with the given name and configuration information.\n",
+    "metadata": {
+      "name": "FileSystemProvider",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:GateChecker",
+    "content": "Type GateChecker in package contracts: GateChecker 权限检查器\npermission checker.\n",
+    "metadata": {
+      "name": "GateChecker",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:GateHook",
+    "content": "Type GateHook in package contracts: GateHook 权限钩子\npermission hook.\n",
+    "metadata": {
+      "name": "GateHook",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:GuardDriver",
+    "content": "Type GuardDriver in package contracts: GuardDriver 守卫驱动程序\nguard driver\n",
+    "metadata": {
+      "name": "GuardDriver",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:InstanceProvider",
+    "content": "Type InstanceProvider in package contracts: InstanceProvider 容器实例提供者\ncontainer instance provider\n",
+    "metadata": {
+      "name": "InstanceProvider",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:MagicalFunc",
+    "content": "Type MagicalFunc in package contracts: MagicalFunc 可以通过容器调用的魔术方法\nMagic methods that can be called from the container.\n",
+    "metadata": {
+      "name": "MagicalFunc",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:MailerDriver",
+    "content": "Type MailerDriver in package contracts: MailerDriver 通过给定的名称和配置信息获取邮件驱动程序\nGet mail driver by given name and configuration info.\n",
+    "metadata": {
+      "name": "MailerDriver",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:Pipe",
+    "content": "Type Pipe in package contracts: Pipe 通过可用管道之一发送对象\nSend an object through one of the available pipelines.\n",
+    "metadata": {
+      "name": "Pipe",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:Policy",
+    "content": "Type Policy in package contracts: Policy 权限策略, 一组检查器\nPermission policy, a set of checkers.\n",
+    "metadata": {
+      "name": "Policy",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:QueryCallback",
+    "content": "Type QueryCallback in package contracts: QueryCallback 查询回调，用于构建子查询\nquery callback，for building subqueries.\n",
+    "metadata": {
+      "name": "QueryCallback",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:QueryFunc",
+    "content": "Type QueryFunc in package contracts: QueryFunc 用于构造 子 where 表达式\nUsed to construct sub-where expressions.\n",
+    "metadata": {
+      "name": "QueryFunc",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:QueryProvider",
+    "content": "Type QueryProvider in package contracts: QueryProvider 查询提供者\nquery provider.\n",
+    "metadata": {
+      "name": "QueryProvider",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:QueueDriver",
+    "content": "Type QueueDriver in package contracts: QueueDriver 通过给定的信息获取队列连接\nGet queue connection with given information.\n",
+    "metadata": {
+      "name": "QueueDriver",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:RedisSubscribeFunc",
+    "content": "Type RedisSubscribeFunc in package contracts: RedisSubscribeFunc 订阅给定的消息频道\nSubscribe to a given message channel.\n",
+    "metadata": {
+      "name": "RedisSubscribeFunc",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:RelationType",
+    "content": "Type RelationType in package contracts: RelationType 关联关系\n",
+    "metadata": {
+      "name": "RelationType",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:ServiceProvider",
+    "content": "Type ServiceProvider in package contracts: ServiceProvider 服务提供者接口\nService Provider Interface.\n",
+    "metadata": {
+      "name": "ServiceProvider",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:UserProviderDriver",
+    "content": "Type UserProviderDriver in package contracts: UserProviderDriver 用户提供者驱动程序\nUser Provider Driver\n",
+    "metadata": {
+      "name": "UserProviderDriver",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:contracts:Validatable",
+    "content": "Type Validatable in package contracts: Validatable 可验证的表单\n",
+    "metadata": {
+      "name": "Validatable",
+      "package": "contracts",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:querybuilder:Builder:WhereBetween",
+    "content": "Method WhereBetween of type Builder in package querybuilder: WhereBetween args 参数可以是整数、浮点数、字符串、any 等类型的数组，或者用` and `隔开的字符串，或者在源码中了解更多 https://github.com/goal-web/querybuilder/blob/78bcc832604bfcdb68579e3dd1441796a16994cf/builder.go#L74\n",
+    "metadata": {
+      "name": "WhereBetween",
+      "package": "querybuilder",
+      "struct": "Builder",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:querybuilder:Builder:WhereIn",
+    "content": "Method WhereIn of type Builder in package querybuilder: WhereIn args 参数可以是整数、浮点数、字符串、any 等类型的数组，或者用` and `隔开的字符串，或者在源码中了解更多 https://github.com/goal-web/querybuilder/blob/78bcc832604bfcdb68579e3dd1441796a16994cf/builder.go#L74\n",
+    "metadata": {
+      "name": "WhereIn",
+      "package": "querybuilder",
+      "struct": "Builder",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:migrate:ColumnInfo",
+    "content": "Type ColumnInfo in package migrate: ColumnInfo 结构体用于存储表的列信息\n",
+    "metadata": {
+      "name": "ColumnInfo",
+      "package": "migrate",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:migrate:IndexInfo",
+    "content": "Type IndexInfo in package migrate: IndexInfo 用于接收 MySQL 表索引信息的结构体\n",
+    "metadata": {
+      "name": "IndexInfo",
+      "package": "migrate",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:AllDirectories",
+    "content": "Function AllDirectories in package utils: AllDirectories 获取一个目录下的所有目录\n",
+    "metadata": {
+      "name": "AllDirectories",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:AllFiles",
+    "content": "Function AllFiles in package utils: AllFiles 获取一个目录下的所有文件\n",
+    "metadata": {
+      "name": "AllFiles",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:CamelString",
+    "content": "Function CamelString in package utils: CamelString 驼峰\n",
+    "metadata": {
+      "name": "CamelString",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:CopyFile",
+    "content": "Function CopyFile in package utils: CopyFile 复制一个文件\n",
+    "metadata": {
+      "name": "CopyFile",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:EachMap",
+    "content": "Function EachMap in package utils: EachMap 遍历任意 map\n",
+    "metadata": {
+      "name": "EachMap",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:EachSlice",
+    "content": "Function EachSlice in package utils: EachSlice 遍历任意 slice 或者 array\n",
+    "metadata": {
+      "name": "EachSlice",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:EachStructField",
+    "content": "Function EachStructField in package utils: EachStructField 遍历结构体的字段\n",
+    "metadata": {
+      "name": "EachStructField",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ExceptFields",
+    "content": "Function ExceptFields in package utils: ExceptFields 只获取指定 key 以外的数据\n",
+    "metadata": {
+      "name": "ExceptFields",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:FileExists",
+    "content": "Function FileExists in package utils: FileExists 文件是否存在\n",
+    "metadata": {
+      "name": "FileExists",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:GetBoolField",
+    "content": "Function GetBoolField in package utils: GetBoolField 获取 ToFields 中的 bool，会尝试转换类型\n",
+    "metadata": {
+      "name": "GetBoolField",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:GetFloat64Field",
+    "content": "Function GetFloat64Field in package utils: GetFloat64Field 获取 ToFields 中的 float64，会尝试转换类型\n",
+    "metadata": {
+      "name": "GetFloat64Field",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:GetFloatField",
+    "content": "Function GetFloatField in package utils: GetFloatField 获取 ToFields 中的 float32，会尝试转换类型\n",
+    "metadata": {
+      "name": "GetFloatField",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:GetInt64Field",
+    "content": "Function GetInt64Field in package utils: GetInt64Field 获取 ToFields 中的 int64，会尝试转换类型\n",
+    "metadata": {
+      "name": "GetInt64Field",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:GetIntField",
+    "content": "Function GetIntField in package utils: GetIntField 获取 ToFields 中的 int，会尝试转换类型\n",
+    "metadata": {
+      "name": "GetIntField",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:GetMapKeys",
+    "content": "Function GetMapKeys in package utils: GetMapKeys 获取 ToFields 的所有 key\n",
+    "metadata": {
+      "name": "GetMapKeys",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:GetStringField",
+    "content": "Function GetStringField in package utils: GetStringField 获取 ToFields 中的字符串，会尝试转换类型\n",
+    "metadata": {
+      "name": "GetStringField",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:GetSubField",
+    "content": "Function GetSubField in package utils: GetSubField 获取下级 ToFields ，如果没有的话，匹配同前缀的放到下级 ToFields 中\n",
+    "metadata": {
+      "name": "GetSubField",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:GetTypeKey",
+    "content": "Function GetTypeKey in package utils: GetTypeKey 获取类型唯一字符串\n",
+    "metadata": {
+      "name": "GetTypeKey",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:IfString",
+    "content": "Function IfString in package utils: IfString 类似三目运算\n",
+    "metadata": {
+      "name": "IfString",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:Ifi",
+    "content": "Function Ifi in package utils: Ifi 类似三目运算，返回第一个不是 nil 的值\n",
+    "metadata": {
+      "name": "Ifi",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:IntOr",
+    "content": "Function IntOr in package utils: IntOr 尽量不返回0值\n",
+    "metadata": {
+      "name": "IntOr",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:IsArray",
+    "content": "Function IsArray in package utils: IsArray 是否是数组或者 slice\n",
+    "metadata": {
+      "name": "IsArray",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:IsEqual",
+    "content": "Function IsEqual in package utils: IsEqual 等于 =\n",
+    "metadata": {
+      "name": "IsEqual",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:IsGt",
+    "content": "Function IsGt in package utils: IsGt 大于 \u003e\n",
+    "metadata": {
+      "name": "IsGt",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:IsGte",
+    "content": "Function IsGte in package utils: IsGte 大于等于\n",
+    "metadata": {
+      "name": "IsGte",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:IsIn",
+    "content": "Function IsIn in package utils: IsIn 存在 in\n",
+    "metadata": {
+      "name": "IsIn",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:IsInstanceIn",
+    "content": "Function IsInstanceIn in package utils: IsInstanceIn InstanceIn 判断变量是否是某些类型\n",
+    "metadata": {
+      "name": "IsInstanceIn",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:IsLt",
+    "content": "Function IsLt in package utils: IsLt 小于 \u003c\n",
+    "metadata": {
+      "name": "IsLt",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:IsLte",
+    "content": "Function IsLte in package utils: IsLte 小于等于 \u003c=\n",
+    "metadata": {
+      "name": "IsLte",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:IsNotIn",
+    "content": "Function IsNotIn in package utils: IsNotIn 不存在 not in\n",
+    "metadata": {
+      "name": "IsNotIn",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:IsSameStruct",
+    "content": "Function IsSameStruct in package utils: IsSameStruct 判断是否同一个结构体\n",
+    "metadata": {
+      "name": "IsSameStruct",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:JoinFloat64Array",
+    "content": "Function JoinFloat64Array in package utils: JoinFloat64Array 连接 float64 数组，类似 strings.Join\n",
+    "metadata": {
+      "name": "JoinFloat64Array",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:JoinFloatArray",
+    "content": "Function JoinFloatArray in package utils: JoinFloatArray 连接 float32 数组，类似 strings.Join\n",
+    "metadata": {
+      "name": "JoinFloatArray",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:JoinInt64Array",
+    "content": "Function JoinInt64Array in package utils: JoinInt64Array 连接 int64 数组，类似 strings.Join\n",
+    "metadata": {
+      "name": "JoinInt64Array",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:JoinIntArray",
+    "content": "Function JoinIntArray in package utils: JoinIntArray 连接 int 数组，类似 strings.Join\n",
+    "metadata": {
+      "name": "JoinIntArray",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:JoinInterfaceArray",
+    "content": "Function JoinInterfaceArray in package utils: JoinInterfaceArray 连接 interface 数组，类似 strings.Join\n",
+    "metadata": {
+      "name": "JoinInterfaceArray",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:JoinStringerArray",
+    "content": "Function JoinStringerArray in package utils: JoinStringerArray 连接fmt.Stringer数组，类似 strings.Join\n",
+    "metadata": {
+      "name": "JoinStringerArray",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:LoadEnv",
+    "content": "Function LoadEnv in package utils: LoadEnv 加载 .env 文件\n",
+    "metadata": {
+      "name": "LoadEnv",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:MakeSymbolArray",
+    "content": "Function MakeSymbolArray in package utils: MakeSymbolArray 创建一个有指定字符组成的数组\n",
+    "metadata": {
+      "name": "MakeSymbolArray",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:Md5",
+    "content": "Function Md5 in package utils: Md5 生成 md5 字符串\n",
+    "metadata": {
+      "name": "Md5",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:MergeFields",
+    "content": "Function MergeFields in package utils: MergeFields 合并两个 contracts.Fields\n",
+    "metadata": {
+      "name": "MergeFields",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:NotNil",
+    "content": "Function NotNil in package utils: NotNil 尽量不要 nil\n",
+    "metadata": {
+      "name": "NotNil",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:OnlyExistsFields",
+    "content": "Function OnlyExistsFields in package utils: OnlyExistsFields 只获取指定 key ，不存在或者 nil 则忽略\n",
+    "metadata": {
+      "name": "OnlyExistsFields",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:OnlyFields",
+    "content": "Function OnlyFields in package utils: OnlyFields 只获取指定 key 的数据\n",
+    "metadata": {
+      "name": "OnlyFields",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ParseStructTag",
+    "content": "Function ParseStructTag in package utils: ParseStructTag 解析结构体的tag\n",
+    "metadata": {
+      "name": "ParseStructTag",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:RandStr",
+    "content": "Function RandStr in package utils: RandStr 生成随机字符串\n",
+    "metadata": {
+      "name": "RandStr",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:RandomStringBySeed",
+    "content": "Function RandomStringBySeed in package utils: RandomStringBySeed 根据种子生成确定性的随机字符串\nseed: 随机种子（相同种子生成相同结果）\nlength: 字符串长度\ncharset: 可选字符集（默认包含大小写字母和数字）\n",
+    "metadata": {
+      "name": "RandomStringBySeed",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:SetInterval",
+    "content": "Function SetInterval in package utils: SetInterval 设置一个定时器，类似 js 的 SetInterval，返回一个用于关闭该定时器的通道\n",
+    "metadata": {
+      "name": "SetInterval",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:SnakeString",
+    "content": "Function SnakeString in package utils: SnakeString 蛇形字符串\n",
+    "metadata": {
+      "name": "SnakeString",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:StringArray2InterfaceArray",
+    "content": "Function StringArray2InterfaceArray in package utils: StringArray2InterfaceArray 把字符串数组转成 any 数组\n",
+    "metadata": {
+      "name": "StringArray2InterfaceArray",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:StringOr",
+    "content": "Function StringOr in package utils: StringOr 尽量不返回空字符串\n",
+    "metadata": {
+      "name": "StringOr",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:SubString",
+    "content": "Function SubString in package utils: SubString 切割字符串\n",
+    "metadata": {
+      "name": "SubString",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToBool",
+    "content": "Function ToBool in package utils: ToBool 把能转换成 bool 的值转换成 bool\n",
+    "metadata": {
+      "name": "ToBool",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToFields",
+    "content": "Function ToFields in package utils: ToFields 尝试把一个变量转换成 ToFields 类型\n",
+    "metadata": {
+      "name": "ToFields",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToFloat",
+    "content": "Function ToFloat in package utils: ToFloat 把能转换成 float32 的值转换成 float32\n",
+    "metadata": {
+      "name": "ToFloat",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToFloat64",
+    "content": "Function ToFloat64 in package utils: ToFloat64 把能转换成 float64 的值转换成 float64\n",
+    "metadata": {
+      "name": "ToFloat64",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToInt",
+    "content": "Function ToInt in package utils: ToInt 把能转换成 int 的值转换成 int\n",
+    "metadata": {
+      "name": "ToInt",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToInt16",
+    "content": "Function ToInt16 in package utils: ToInt16 把能转换成 int 的值转换成 int\n",
+    "metadata": {
+      "name": "ToInt16",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToInt32",
+    "content": "Function ToInt32 in package utils: ToInt32 把能转换成 int 的值转换成 int\n",
+    "metadata": {
+      "name": "ToInt32",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToInt64",
+    "content": "Function ToInt64 in package utils: ToInt64 把能转换成 int64 的值转换成 int64\n",
+    "metadata": {
+      "name": "ToInt64",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToInt8",
+    "content": "Function ToInt8 in package utils: ToInt8 把能转换成 int 的值转换成 int\n",
+    "metadata": {
+      "name": "ToInt8",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToString",
+    "content": "Function ToString in package utils: ToString 把能转换成 string 的值转换成 string\n",
+    "metadata": {
+      "name": "ToString",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToTypes",
+    "content": "Function ToTypes in package utils: ToTypes 把变量转换成反射类型\n",
+    "metadata": {
+      "name": "ToTypes",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToUInt",
+    "content": "Function ToUInt in package utils: uint\n",
+    "metadata": {
+      "name": "ToUInt",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToUInt16",
+    "content": "Function ToUInt16 in package utils: uint\n",
+    "metadata": {
+      "name": "ToUInt16",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToUInt32",
+    "content": "Function ToUInt32 in package utils: uint\n",
+    "metadata": {
+      "name": "ToUInt32",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToUInt64",
+    "content": "Function ToUInt64 in package utils: uint\n",
+    "metadata": {
+      "name": "ToUInt64",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToUInt8",
+    "content": "Function ToUInt8 in package utils: uint\n",
+    "metadata": {
+      "name": "ToUInt8",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:utils:ToValue",
+    "content": "Function ToValue in package utils: ToValue 把 interface 转换成指定类型的 reflect.Value\n",
+    "metadata": {
+      "name": "ToValue",
+      "package": "utils",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:File:ReadFrom",
+    "content": "Method ReadFrom of type File in package drivers: ReadFrom reads a binary representation of the BloomFilter (such as might\nhave been written by WriteTo()) from an i/o stream. It returns the number\nof bytes read.\n",
+    "metadata": {
+      "name": "ReadFrom",
+      "package": "drivers",
+      "struct": "File",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:File:TestAndAdd",
+    "content": "Method TestAndAdd of type File in package drivers: TestAndAdd is the equivalent to calling Test(data) then Add(data).\nReturns the result of Test.\n",
+    "metadata": {
+      "name": "TestAndAdd",
+      "package": "drivers",
+      "struct": "File",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:File:TestAndAddString",
+    "content": "Method TestAndAddString of type File in package drivers: TestAndAddString is the equivalent to calling Test(string) then Add(string).\nReturns the result of Test.\n",
+    "metadata": {
+      "name": "TestAndAddString",
+      "package": "drivers",
+      "struct": "File",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:File:TestOrAdd",
+    "content": "Method TestOrAdd of type File in package drivers: TestOrAdd is the equivalent to calling Test(data) then if not present Add(data).\nReturns the result of Test.\n",
+    "metadata": {
+      "name": "TestOrAdd",
+      "package": "drivers",
+      "struct": "File",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:File:TestOrAddString",
+    "content": "Method TestOrAddString of type File in package drivers: TestOrAddString is the equivalent to calling Test(string) then if not present Add(string).\nReturns the result of Test.\n",
+    "metadata": {
+      "name": "TestOrAddString",
+      "package": "drivers",
+      "struct": "File",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:File:WriteTo",
+    "content": "Method WriteTo of type File in package drivers: WriteTo writes a binary representation of the BloomFilter to an i/o stream.\nIt returns the number of bytes written.\n",
+    "metadata": {
+      "name": "WriteTo",
+      "package": "drivers",
+      "struct": "File",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:Redis:TestAndAdd",
+    "content": "Method TestAndAdd of type Redis in package drivers: TestAndAdd is the equivalent to calling Test(data) then Add(data).\nReturns the result of Test.\n",
+    "metadata": {
+      "name": "TestAndAdd",
+      "package": "drivers",
+      "struct": "Redis",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:Redis:TestAndAddString",
+    "content": "Method TestAndAddString of type Redis in package drivers: TestAndAddString is the equivalent to calling Test(string) then Add(string).\nReturns the result of Test.\n",
+    "metadata": {
+      "name": "TestAndAddString",
+      "package": "drivers",
+      "struct": "Redis",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:Redis:TestOrAdd",
+    "content": "Method TestOrAdd of type Redis in package drivers: TestOrAdd is the equivalent to calling Test(data) then if not present Add(data).\nReturns the result of Test.\n",
+    "metadata": {
+      "name": "TestOrAdd",
+      "package": "drivers",
+      "struct": "Redis",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:Redis:TestOrAddString",
+    "content": "Method TestOrAddString of type Redis in package drivers: TestOrAddString is the equivalent to calling Test(string) then if not present Add(string).\nReturns the result of Test.\n",
+    "metadata": {
+      "name": "TestOrAddString",
+      "package": "drivers",
+      "struct": "Redis",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "pkg:auth",
+    "content": "Package auth: Package auth provides authentication functionality and singleton access.\n包 auth 提供认证功能和单例访问。\n\nPackage auth provides authentication functionality and singleton access.\n包 auth 提供认证功能和单例访问。\n\nPackage auth provides authentication functionality and singleton access.\n包 auth 提供认证功能和单例访问。\n\nPackage auth provides authentication functionality and singleton access.\n包 auth 提供认证功能和单例访问。\n\nPackage auth provides authentication functionality and singleton access.\n包 auth 提供认证功能和单例访问。\n\nPackage auth provides authentication functionality and singleton access.\n包 auth 提供认证功能和单例访问。\n",
+    "metadata": {
+      "name": "auth",
+      "type": "package"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:auth:Default",
+    "content": "Function Default in package auth: Default returns the singleton instance of the auth service.\nDefault 返回认证服务的单例实例。\n",
+    "metadata": {
+      "name": "Default",
+      "package": "auth",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:auth:ExtendGuard",
+    "content": "Function ExtendGuard in package auth: ExtendGuard extends the guard with a custom driver.\nExtendGuard 使用自定义驱动扩展守卫。\n",
+    "metadata": {
+      "name": "ExtendGuard",
+      "package": "auth",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:auth:ExtendUserProvider",
+    "content": "Function ExtendUserProvider in package auth: ExtendUserProvider extends the user provider with a custom driver.\nExtendUserProvider 使用自定义驱动扩展用户提供者。\n",
+    "metadata": {
+      "name": "ExtendUserProvider",
+      "package": "auth",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:auth:GetGuard",
+    "content": "Function GetGuard in package auth: GetGuard returns the authentication guard with the given name.\nGetGuard 返回指定名称的认证守卫。\n",
+    "metadata": {
+      "name": "GetGuard",
+      "package": "auth",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:auth:Guard",
+    "content": "Function Guard in package auth: Guard creates a middleware that checks authentication using the specified guards.\nGuard 创建使用指定守卫检查认证的中间件。\n",
+    "metadata": {
+      "name": "Guard",
+      "package": "auth",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:auth:GuestMiddleware",
+    "content": "Function GuestMiddleware in package auth: GuestMiddleware ensures that the user is a guest (not authenticated).\nGuestMiddleware 确保用户是访客（未认证）。\n",
+    "metadata": {
+      "name": "GuestMiddleware",
+      "package": "auth",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:auth:Middleware",
+    "content": "Function Middleware in package auth: Middleware ensures that the user is authenticated.\nMiddleware 确保用户已认证。\n",
+    "metadata": {
+      "name": "Middleware",
+      "package": "auth",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:auth:NewService",
+    "content": "Function NewService in package auth: NewService creates a new instance of the auth service provider.\nNewService 创建认证服务提供者的新实例。\n",
+    "metadata": {
+      "name": "NewService",
+      "package": "auth",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:auth:UserProvider",
+    "content": "Function UserProvider in package auth: UserProvider returns the user provider with the given name.\nUserProvider 返回指定名称的用户提供者。\n",
+    "metadata": {
+      "name": "UserProvider",
+      "package": "auth",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:auth:Auth",
+    "content": "Type Auth in package auth: Auth implements the authentication service interface.\nAuth 实现认证服务接口。\n",
+    "metadata": {
+      "name": "Auth",
+      "package": "auth",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:auth:Auth:ExtendGuard",
+    "content": "Method ExtendGuard of type Auth in package auth: ExtendGuard registers a custom guard driver.\nExtendGuard 注册自定义守卫驱动。\n",
+    "metadata": {
+      "name": "ExtendGuard",
+      "package": "auth",
+      "struct": "Auth",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:auth:Auth:ExtendUserProvider",
+    "content": "Method ExtendUserProvider of type Auth in package auth: ExtendUserProvider registers a custom user provider driver.\nExtendUserProvider 注册自定义用户提供者驱动。\n",
+    "metadata": {
+      "name": "ExtendUserProvider",
+      "package": "auth",
+      "struct": "Auth",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:auth:Auth:Guard",
+    "content": "Method Guard of type Auth in package auth: Guard returns an authentication guard instance with the given name.\nGuard 返回指定名称的认证守卫实例。\n",
+    "metadata": {
+      "name": "Guard",
+      "package": "auth",
+      "struct": "Auth",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:auth:Auth:UserProvider",
+    "content": "Method UserProvider of type Auth in package auth: UserProvider returns a user provider instance with the given name.\nUserProvider 返回指定名称的用户提供者实例。\n",
+    "metadata": {
+      "name": "UserProvider",
+      "package": "auth",
+      "struct": "Auth",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:auth:Config",
+    "content": "Type Config in package auth: Config holds authentication configuration.\nConfig 保存认证配置。\n",
+    "metadata": {
+      "name": "Config",
+      "package": "auth",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:auth:Defaults",
+    "content": "Type Defaults in package auth: Defaults holds default configuration values for authentication.\nDefaults 保存认证的默认配置值。\n",
+    "metadata": {
+      "name": "Defaults",
+      "package": "auth",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:auth:GuardException",
+    "content": "Type GuardException in package auth: GuardException represents an error related to authentication guards.\nGuardException 表示与认证守卫相关的错误。\n",
+    "metadata": {
+      "name": "GuardException",
+      "package": "auth",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:auth:UserProviderException",
+    "content": "Type UserProviderException in package auth: UserProviderException represents an error related to user providers.\nUserProviderException 表示与用户提供者相关的错误。\n",
+    "metadata": {
+      "name": "UserProviderException",
+      "package": "auth",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "pkg:cache",
+    "content": "Package cache: Package cache provides caching functionality and singleton access.\n包 cache 提供缓存功能和单例访问。\n\nPackage cache provides caching functionality and singleton access.\n包 cache 提供缓存功能和单例访问。\n\nPackage cache provides caching functionality and singleton access.\n包 cache 提供缓存功能和单例访问。\n\nPackage cache provides caching functionality and singleton access.\n包 cache 提供缓存功能和单例访问。\n\nPackage cache provides caching functionality and singleton access.\n包 cache 提供缓存功能和单例访问。\n",
+    "metadata": {
+      "name": "cache",
+      "type": "package"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:Add",
+    "content": "Function Add in package cache: Add adds a value to the cache with an expiration time if it doesn't exist.\nAdd 如果不存在则将带过期时间的值添加到缓存中。\n",
+    "metadata": {
+      "name": "Add",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:CacheGet",
+    "content": "Function CacheGet in package cache: CacheGet retrieves a value from the cache by key.\nCacheGet 根据键从缓存中获取值。\n",
+    "metadata": {
+      "name": "CacheGet",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:Decrement",
+    "content": "Function Decrement in package cache: Decrement decrements the value of the given key by the given value.\nDecrement 按给定值减少指定键的值。\n",
+    "metadata": {
+      "name": "Decrement",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:Default",
+    "content": "Function Default in package cache: Default returns the singleton instance of the cache factory.\nDefault 返回缓存工厂的单例实例。\n",
+    "metadata": {
+      "name": "Default",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:Extend",
+    "content": "Function Extend in package cache: Extend registers a custom cache store provider.\nExtend 注册自定义缓存存储提供者。\n",
+    "metadata": {
+      "name": "Extend",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:Flush",
+    "content": "Function Flush in package cache: Flush flushes all values from the cache.\nFlush 清空缓存中的所有值。\n",
+    "metadata": {
+      "name": "Flush",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:Forever",
+    "content": "Function Forever in package cache: Forever puts a value to the cache without expiration time.\nForever 将无过期时间的值放入缓存中。\n",
+    "metadata": {
+      "name": "Forever",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:Forget",
+    "content": "Function Forget in package cache: Forget removes a value from the cache by key.\nForget 根据键从缓存中删除值。\n",
+    "metadata": {
+      "name": "Forget",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:GetPrefix",
+    "content": "Function GetPrefix in package cache: GetPrefix returns the cache key prefix.\nGetPrefix 返回缓存键前缀。\n",
+    "metadata": {
+      "name": "GetPrefix",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:Increment",
+    "content": "Function Increment in package cache: Increment increments the value of the given key by the given value.\nIncrement 按给定值增加指定键的值。\n",
+    "metadata": {
+      "name": "Increment",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:Many",
+    "content": "Function Many in package cache: Many retrieves multiple values from the cache by keys.\nMany 根据键列表从缓存中获取多个值。\n",
+    "metadata": {
+      "name": "Many",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:NewService",
+    "content": "Function NewService in package cache: NewService creates a new instance of the cache service provider.\nNewService 创建缓存服务提供者的新实例。\n",
+    "metadata": {
+      "name": "NewService",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:Pull",
+    "content": "Function Pull in package cache: Pull retrieves and removes a value from the cache by key.\nPull 根据键从缓存中获取并删除值。\n",
+    "metadata": {
+      "name": "Pull",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:Put",
+    "content": "Function Put in package cache: Put puts a value to the cache with an expiration time.\nPut 将带过期时间的值放入缓存中。\n",
+    "metadata": {
+      "name": "Put",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:PutMany",
+    "content": "Function PutMany in package cache: PutMany puts multiple values to the cache with an expiration time.\nPutMany 将多个带过期时间的值放入缓存中。\n",
+    "metadata": {
+      "name": "PutMany",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:Remember",
+    "content": "Function Remember in package cache: Remember retrieves a value from the cache or executes the callback to set it.\nRemember 从缓存中获取值，如果不存在则执行回调函数设置值。\n",
+    "metadata": {
+      "name": "Remember",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:RememberForever",
+    "content": "Function RememberForever in package cache: RememberForever retrieves a value from the cache or executes the callback to set it without expiration.\nRememberForever 从缓存中获取值，如果不存在则执行回调函数设置值，无过期时间。\n",
+    "metadata": {
+      "name": "RememberForever",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:cache:Store",
+    "content": "Function Store in package cache: Store returns a cache store instance with the given name.\nStore 返回指定名称的缓存存储实例。\n",
+    "metadata": {
+      "name": "Store",
+      "package": "cache",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:cache:Config",
+    "content": "Type Config in package cache: Config holds cache configuration.\nConfig 保存缓存配置。\n",
+    "metadata": {
+      "name": "Config",
+      "package": "cache",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:cache:DriverException",
+    "content": "Type DriverException in package cache: DriverException represents an error in the cache module drivers.\nDriverException 表示缓存模块驱动中的错误。\n",
+    "metadata": {
+      "name": "DriverException",
+      "package": "cache",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:container:ArgumentsTypeMap:FindConvertibleArg",
+    "content": "Method FindConvertibleArg of type ArgumentsTypeMap in package container: FindConvertibleArg 找到可转换的参数\n",
+    "metadata": {
+      "name": "FindConvertibleArg",
+      "package": "container",
+      "struct": "ArgumentsTypeMap",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:container:Container:StaticCall",
+    "content": "Method StaticCall of type Container in package container: StaticCall 静态调用，直接传静态化的方法\n",
+    "metadata": {
+      "name": "StaticCall",
+      "package": "container",
+      "struct": "Container",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:container:Container:StaticCallByArguments",
+    "content": "Method StaticCallByArguments of type Container in package container: StaticCallByArguments 静态调用，直接传静态化的方法和处理好的参数\n",
+    "metadata": {
+      "name": "StaticCallByArguments",
+      "package": "container",
+      "struct": "Container",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:session:RequestAfterListener:Handle",
+    "content": "Method Handle of type RequestAfterListener in package session: Handle 如果开启了 session 那么请求结束时保存 session\n",
+    "metadata": {
+      "name": "Handle",
+      "package": "session",
+      "struct": "RequestAfterListener",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:config:Default",
+    "content": "Function Default in package config: Default 返回配置单例。仅在首次调用时从默认应用中获取并缓存。\n",
+    "metadata": {
+      "name": "Default",
+      "package": "config",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:config:EncryptionCommand",
+    "content": "Function EncryptionCommand in package config: EncryptionCommand 返回用于加密/解密环境文件的 CLI 命令与处理器。\n支持指定驱动与密钥，不指定密钥时自动生成并在日志中输出。\n",
+    "metadata": {
+      "name": "EncryptionCommand",
+      "package": "config",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:config:Get",
+    "content": "Function Get in package config: Get 按点号路径获取配置值（如 \"app.debug\"）。\n",
+    "metadata": {
+      "name": "Get",
+      "package": "config",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:config:New",
+    "content": "Function New in package config: New 创建一个配置实例，基于给定的环境源与模块提供器。\n并发安全：写入使用写锁，读取使用读锁；环境值在未设置字段时作为后备。\n",
+    "metadata": {
+      "name": "New",
+      "package": "config",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:config:NewDotEnv",
+    "content": "Function NewDotEnv in package config: NewDotEnv 创建基于 DotEnv（键值对）数据源的环境读取器。\n支持从本地文件或远程地址加载，OS 环境变量优先级最高。\n",
+    "metadata": {
+      "name": "NewDotEnv",
+      "package": "config",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:config:NewService",
+    "content": "Function NewService in package config: NewService 创建配置服务提供器，将 env 与各模块配置提供器注册到应用。\n",
+    "metadata": {
+      "name": "NewService",
+      "package": "config",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:config:NewToml",
+    "content": "Function NewToml in package config: NewToml 创建基于 TOML 数据源的环境读取器。\n多个数据源将按顺序合并，后者可覆盖前者同名键。\n",
+    "metadata": {
+      "name": "NewToml",
+      "package": "config",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:config:NewYaml",
+    "content": "Function NewYaml in package config: NewYaml 创建基于 YAML 数据源的环境读取器。\n多个数据源将按顺序合并，后者可覆盖前者同名键。\n",
+    "metadata": {
+      "name": "NewYaml",
+      "package": "config",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:config:Reload",
+    "content": "Function Reload in package config: Reload 重新计算并加载所有已注册的配置提供器（文件/URL/环境）。\n",
+    "metadata": {
+      "name": "Reload",
+      "package": "config",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:config:Set",
+    "content": "Function Set in package config: Set 设置或覆盖一个配置键的值，线程安全。\n",
+    "metadata": {
+      "name": "Set",
+      "package": "config",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:config:ToEnvKey",
+    "content": "Function ToEnvKey in package config: ToEnvKey 将 key 转换为大写，并将 . 替换为 _\n",
+    "metadata": {
+      "name": "ToEnvKey",
+      "package": "config",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:config:Unset",
+    "content": "Function Unset in package config: Unset 删除指定配置键。\n",
+    "metadata": {
+      "name": "Unset",
+      "package": "config",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:config:WithFields",
+    "content": "Function WithFields in package config: WithFields 以已有字段初始化一个配置实例，常用于测试或注入默认值。\n",
+    "metadata": {
+      "name": "WithFields",
+      "package": "config",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:controllers:Register",
+    "content": "Function Register in package controllers: Register 注册路由函数\n",
+    "metadata": {
+      "name": "Register",
+      "package": "controllers",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:drivers:NewRedisCache",
+    "content": "Function NewRedisCache in package drivers: NewRedisCache 创建Redis缓存实例\n改进：添加参数验证\n",
+    "metadata": {
+      "name": "NewRedisCache",
+      "package": "drivers",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:Memory:CleanupAllExpired",
+    "content": "Method CleanupAllExpired of type Memory in package drivers: CleanupAllExpired 清理所有过期项\n",
+    "metadata": {
+      "name": "CleanupAllExpired",
+      "package": "drivers",
+      "struct": "Memory",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:Memory:GetKeys",
+    "content": "Method GetKeys of type Memory in package drivers: GetKeys 获取所有键（用于调试和监控）\n",
+    "metadata": {
+      "name": "GetKeys",
+      "package": "drivers",
+      "struct": "Memory",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:Memory:GetKeysByPattern",
+    "content": "Method GetKeysByPattern of type Memory in package drivers: GetKeysByPattern 根据模式获取键列表（简单实现）\n",
+    "metadata": {
+      "name": "GetKeysByPattern",
+      "package": "drivers",
+      "struct": "Memory",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:Memory:GetStats",
+    "content": "Method GetStats of type Memory in package drivers: GetStats 获取缓存统计信息\n",
+    "metadata": {
+      "name": "GetStats",
+      "package": "drivers",
+      "struct": "Memory",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:RedisStore:Exists",
+    "content": "Method Exists of type RedisStore in package drivers: Exists 检查键是否存在\n",
+    "metadata": {
+      "name": "Exists",
+      "package": "drivers",
+      "struct": "RedisStore",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:RedisStore:GetKeysByPattern",
+    "content": "Method GetKeysByPattern of type RedisStore in package drivers: GetKeysByPattern 根据模式获取键列表\n",
+    "metadata": {
+      "name": "GetKeysByPattern",
+      "package": "drivers",
+      "struct": "RedisStore",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:RedisStore:GetStats",
+    "content": "Method GetStats of type RedisStore in package drivers: GetStats 获取缓存统计信息\n",
+    "metadata": {
+      "name": "GetStats",
+      "package": "drivers",
+      "struct": "RedisStore",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:RedisStore:GetTTL",
+    "content": "Method GetTTL of type RedisStore in package drivers: GetTTL 获取键的剩余生存时间\n",
+    "metadata": {
+      "name": "GetTTL",
+      "package": "drivers",
+      "struct": "RedisStore",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:drivers:RedisStore:ScanKeys",
+    "content": "Method ScanKeys of type RedisStore in package drivers: ScanKeys 扫描键（用于大数据集）\n",
+    "metadata": {
+      "name": "ScanKeys",
+      "package": "drivers",
+      "struct": "RedisStore",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:redis:Connection:Eval",
+    "content": "Method Eval of type Connection in package redis: scripting start\n",
+    "metadata": {
+      "name": "Eval",
+      "package": "redis",
+      "struct": "Connection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:redis:Connection:EvalWithContext",
+    "content": "Method EvalWithContext of type Connection in package redis: scripting start\n",
+    "metadata": {
+      "name": "EvalWithContext",
+      "package": "redis",
+      "struct": "Connection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:redis:Connection:Get",
+    "content": "Method Get of type Connection in package redis: getter start\n",
+    "metadata": {
+      "name": "Get",
+      "package": "redis",
+      "struct": "Connection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:redis:Connection:GetWithContext",
+    "content": "Method GetWithContext of type Connection in package redis: getter start\n",
+    "metadata": {
+      "name": "GetWithContext",
+      "package": "redis",
+      "struct": "Connection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:redis:Connection:HGet",
+    "content": "Method HGet of type Connection in package redis: hash start\n",
+    "metadata": {
+      "name": "HGet",
+      "package": "redis",
+      "struct": "Connection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:redis:Connection:HGetWithContext",
+    "content": "Method HGetWithContext of type Connection in package redis: hash start\n",
+    "metadata": {
+      "name": "HGetWithContext",
+      "package": "redis",
+      "struct": "Connection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:redis:Connection:SAdd",
+    "content": "Method SAdd of type Connection in package redis: set start\n",
+    "metadata": {
+      "name": "SAdd",
+      "package": "redis",
+      "struct": "Connection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:redis:Connection:SAddWithContext",
+    "content": "Method SAddWithContext of type Connection in package redis: set start\n",
+    "metadata": {
+      "name": "SAddWithContext",
+      "package": "redis",
+      "struct": "Connection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:redis:Connection:Set",
+    "content": "Method Set of type Connection in package redis: setter start\n",
+    "metadata": {
+      "name": "Set",
+      "package": "redis",
+      "struct": "Connection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:redis:Connection:SetWithContext",
+    "content": "Method SetWithContext of type Connection in package redis: setter start\n",
+    "metadata": {
+      "name": "SetWithContext",
+      "package": "redis",
+      "struct": "Connection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:routing:Group:Add",
+    "content": "Method Add of type Group in package routing: Add 添加路由，method 只允许字符串或者字符串数组\n",
+    "metadata": {
+      "name": "Add",
+      "package": "routing",
+      "struct": "Group",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:routing:Group:Group",
+    "content": "Method Group of type Group in package routing: Group 添加一个子组\n",
+    "metadata": {
+      "name": "Group",
+      "package": "routing",
+      "struct": "Group",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:exceptions:WrapException",
+    "content": "Function WrapException in package exceptions: WrapException 包装 recover 的返回值\n",
+    "metadata": {
+      "name": "WrapException",
+      "package": "exceptions",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:AddHeaderAndFormatFiles",
+    "content": "Function AddHeaderAndFormatFiles in package gen: AddHeaderAndFormatFiles 给文件数组中的每个文件添加头部注释、移除未使用的引用，并格式化代码\n参数:\n- files: 文件路径数组，表示需要处理的文件列表\n- headerComment: 需要添加的文件头部注释内容\n",
+    "metadata": {
+      "name": "AddHeaderAndFormatFiles",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:CapitalizeFirstLetter",
+    "content": "Function CapitalizeFirstLetter in package gen: CapitalizeFirstLetter 将单词的首字母大写\n",
+    "metadata": {
+      "name": "CapitalizeFirstLetter",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:ConvertCamelToSnake",
+    "content": "Function ConvertCamelToSnake in package gen: ConvertCamelToSnake converts a string from CamelCase to snake_case\n",
+    "metadata": {
+      "name": "ConvertCamelToSnake",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:GenRouter",
+    "content": "Function GenRouter in package gen: GenRouter 通过指定的 importPath 和 usage 动态修改指定 Go 文件中的路由注册函数\n",
+    "metadata": {
+      "name": "GenRouter",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:GenServices",
+    "content": "Function GenServices in package gen: GenServices 生成 service 代码\n",
+    "metadata": {
+      "name": "GenServices",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:GetModuleNameAndDir",
+    "content": "Function GetModuleNameAndDir in package gen: GetModuleNameAndDir 获取模块名和模块根目录\n",
+    "metadata": {
+      "name": "GetModuleNameAndDir",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:GoType",
+    "content": "Function GoType in package gen: GoType 将 Proto 类型映射为 Go 类型\n",
+    "metadata": {
+      "name": "GoType",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:NotContains",
+    "content": "Function NotContains in package gen: NotContains 返回 true，如果字符串中不包含指定的子串\n",
+    "metadata": {
+      "name": "NotContains",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:SDKServices",
+    "content": "Function SDKServices in package gen: SDKServices 生成 service 代码\n",
+    "metadata": {
+      "name": "SDKServices",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:SubString",
+    "content": "Function SubString in package gen: SubString 切割字符串\n",
+    "metadata": {
+      "name": "SubString",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:ToCamelCase",
+    "content": "Function ToCamelCase in package gen: ToCamelCase 将字符串转换为大写开头的驼峰命名（PascalCase）\n",
+    "metadata": {
+      "name": "ToCamelCase",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:ToSnakeCase",
+    "content": "Function ToSnakeCase in package gen: ToSnakeCase 将驼峰命名转换为蛇形命名\n",
+    "metadata": {
+      "name": "ToSnakeCase",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:ToTags",
+    "content": "Function ToTags in package gen: ToTags 生成 tag\n",
+    "metadata": {
+      "name": "ToTags",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:gen:TsType",
+    "content": "Function TsType in package gen: TsType 将 Proto 类型映射为 typescript 类型\n",
+    "metadata": {
+      "name": "TsType",
+      "package": "gen",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:gen:Proto",
+    "content": "Type Proto in package gen: Proto 数据结构定义\n",
+    "metadata": {
+      "name": "Proto",
+      "package": "gen",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:collection:Collection:Each",
+    "content": "Method Each of type Collection in package collection: Each 遍历并且返回新的集合\n",
+    "metadata": {
+      "name": "Each",
+      "package": "collection",
+      "struct": "Collection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:collection:Collection:Filter",
+    "content": "Method Filter of type Collection in package collection: Filter 过滤不需要的数据 filter 返回 true 时保留\n",
+    "metadata": {
+      "name": "Filter",
+      "package": "collection",
+      "struct": "Collection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:collection:Collection:Foreach",
+    "content": "Method Foreach of type Collection in package collection: Foreach 遍历\n",
+    "metadata": {
+      "name": "Foreach",
+      "package": "collection",
+      "struct": "Collection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:collection:Collection:SafeAvg",
+    "content": "Method SafeAvg of type Collection in package collection: SafeAvg struct 或者 map 情况下需要传 key\n",
+    "metadata": {
+      "name": "SafeAvg",
+      "package": "collection",
+      "struct": "Collection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:collection:Collection:SafeMax",
+    "content": "Method SafeMax of type Collection in package collection: SafeMax struct 或者 map 情况下需要传 key\n",
+    "metadata": {
+      "name": "SafeMax",
+      "package": "collection",
+      "struct": "Collection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:collection:Collection:SafeMin",
+    "content": "Method SafeMin of type Collection in package collection: SafeMin struct 或者 map 情况下需要传 key\n",
+    "metadata": {
+      "name": "SafeMin",
+      "package": "collection",
+      "struct": "Collection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:collection:Collection:SafeSum",
+    "content": "Method SafeSum of type Collection in package collection: SafeSum struct 或者 map 情况下需要传 key\n",
+    "metadata": {
+      "name": "SafeSum",
+      "package": "collection",
+      "struct": "Collection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:collection:Collection:Skip",
+    "content": "Method Skip of type Collection in package collection: Skip 过滤不需要的数据 skipper 返回 true 时过滤\n",
+    "metadata": {
+      "name": "Skip",
+      "package": "collection",
+      "struct": "Collection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:collection:Collection:Sort",
+    "content": "Method Sort of type Collection in package collection: Sort sorter 必须是接收两个参数，并且返回一个 bool 值的函数\n",
+    "metadata": {
+      "name": "Sort",
+      "package": "collection",
+      "struct": "Collection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:collection:Collection:Where",
+    "content": "Method Where of type Collection in package collection: Where 根据条件过滤数据，支持 =,\u003e,\u003e=,\u003c,\u003c=,in,not in 等条件判断\n",
+    "metadata": {
+      "name": "Where",
+      "package": "collection",
+      "struct": "Collection",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:collection:MapException",
+    "content": "Type MapException in package collection: MapException 遍历参数异常\n",
+    "metadata": {
+      "name": "MapException",
+      "package": "collection",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:collection:SortException",
+    "content": "Type SortException in package collection: SortException 排序参数异常\n",
+    "metadata": {
+      "name": "SortException",
+      "package": "collection",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:class:Any",
+    "content": "Function Any in package class: Any 创建一个类\n",
+    "metadata": {
+      "name": "Any",
+      "package": "class",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:class:Define",
+    "content": "Function Define in package class: Define 创建一个接口\n",
+    "metadata": {
+      "name": "Define",
+      "package": "class",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:class:Make",
+    "content": "Function Make in package class: Make 创建一个类\n",
+    "metadata": {
+      "name": "Make",
+      "package": "class",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "pkg:guards",
+    "content": "Package guards: Package guards contains authentication guard implementations.\n包 guards 包含认证守卫的实现。\n\nPackage guards contains authentication guard implementations.\n包 guards 包含认证守卫的实现。\n",
+    "metadata": {
+      "name": "guards",
+      "type": "package"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:guards:SessionGuard",
+    "content": "Function SessionGuard in package guards: SessionGuard creates a session-based authentication guard.\nSessionGuard 创建基于会话的认证守卫。\n",
+    "metadata": {
+      "name": "SessionGuard",
+      "package": "guards",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:guards:Jwt",
+    "content": "Type Jwt in package guards: Jwt implements a JWT-based authentication guard.\nJwt 实现基于 JWT 的认证守卫。\n",
+    "metadata": {
+      "name": "Jwt",
+      "package": "guards",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Jwt:Check",
+    "content": "Method Check of type Jwt in package guards: Check verifies if a user is authenticated.\nCheck 验证用户是否已认证。\n",
+    "metadata": {
+      "name": "Check",
+      "package": "guards",
+      "struct": "Jwt",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Jwt:Error",
+    "content": "Method Error of type Jwt in package guards: Error returns any authentication errors.\nError 返回任何认证错误。\n",
+    "metadata": {
+      "name": "Error",
+      "package": "guards",
+      "struct": "Jwt",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Jwt:GetAuthenticatableKey",
+    "content": "Method GetAuthenticatableKey of type Jwt in package guards: GetAuthenticatableKey returns the key of the authenticated user.\nGetAuthenticatableKey 返回认证用户的键。\n",
+    "metadata": {
+      "name": "GetAuthenticatableKey",
+      "package": "guards",
+      "struct": "Jwt",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Jwt:Guest",
+    "content": "Method Guest of type Jwt in package guards: Guest verifies if the user is a guest (not authenticated).\nGuest 验证用户是否为访客（未认证）。\n",
+    "metadata": {
+      "name": "Guest",
+      "package": "guards",
+      "struct": "Jwt",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Jwt:Login",
+    "content": "Method Login of type Jwt in package guards: Login authenticates the user and generates a JWT token.\nLogin 认证用户并生成 JWT 令牌。\n",
+    "metadata": {
+      "name": "Login",
+      "package": "guards",
+      "struct": "Jwt",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Jwt:Logout",
+    "content": "Method Logout of type Jwt in package guards: Logout logs the user out by blacklisting the JWT token.\nLogout 通过将 JWT 令牌列入黑名单来注销用户。\n",
+    "metadata": {
+      "name": "Logout",
+      "package": "guards",
+      "struct": "Jwt",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Jwt:Once",
+    "content": "Method Once of type Jwt in package guards: Once authenticates the user without storing in session.\nOnce 认证用户但不存储在会话中。\n",
+    "metadata": {
+      "name": "Once",
+      "package": "guards",
+      "struct": "Jwt",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Jwt:SetRedis",
+    "content": "Method SetRedis of type Jwt in package guards: SetRedis sets the Redis connection for token blacklisting.\nSetRedis 设置用于令牌黑名单的 Redis 连接。\n",
+    "metadata": {
+      "name": "SetRedis",
+      "package": "guards",
+      "struct": "Jwt",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Jwt:SetToken",
+    "content": "Method SetToken of type Jwt in package guards: SetToken sets the JWT token to be used for authentication.\nSetToken 设置用于认证的 JWT 令牌。\n",
+    "metadata": {
+      "name": "SetToken",
+      "package": "guards",
+      "struct": "Jwt",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Jwt:User",
+    "content": "Method User of type Jwt in package guards: User returns the currently authenticated user.\nUser 返回当前认证的用户。\n",
+    "metadata": {
+      "name": "User",
+      "package": "guards",
+      "struct": "Jwt",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Jwt:Verify",
+    "content": "Method Verify of type Jwt in package guards: Verify validates a JWT token and returns the authenticated user.\nVerify 验证 JWT 令牌并返回认证用户。\n",
+    "metadata": {
+      "name": "Verify",
+      "package": "guards",
+      "struct": "Jwt",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:guards:JwtAuthClaims",
+    "content": "Type JwtAuthClaims in package guards: JwtAuthClaims represents the claims in a JWT token for authentication.\nJwtAuthClaims 表示用于认证的 JWT 令牌中的声明。\n",
+    "metadata": {
+      "name": "JwtAuthClaims",
+      "package": "guards",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:guards:Session",
+    "content": "Type Session in package guards: Session implements a session-based authentication guard.\nSession 实现基于会话的认证守卫。\n",
+    "metadata": {
+      "name": "Session",
+      "package": "guards",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Session:Check",
+    "content": "Method Check of type Session in package guards: Check verifies if a user is authenticated.\nCheck 验证用户是否已认证。\n",
+    "metadata": {
+      "name": "Check",
+      "package": "guards",
+      "struct": "Session",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Session:Error",
+    "content": "Method Error of type Session in package guards: Error returns any authentication errors.\nError 返回任何认证错误。\n",
+    "metadata": {
+      "name": "Error",
+      "package": "guards",
+      "struct": "Session",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Session:GetAuthenticatableKey",
+    "content": "Method GetAuthenticatableKey of type Session in package guards: GetAuthenticatableKey returns the key of the authenticated user.\nGetAuthenticatableKey 返回认证用户的键。\n",
+    "metadata": {
+      "name": "GetAuthenticatableKey",
+      "package": "guards",
+      "struct": "Session",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Session:Guest",
+    "content": "Method Guest of type Session in package guards: Guest verifies if the user is a guest (not authenticated).\nGuest 验证用户是否为访客（未认证）。\n",
+    "metadata": {
+      "name": "Guest",
+      "package": "guards",
+      "struct": "Session",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Session:Login",
+    "content": "Method Login of type Session in package guards: Login authenticates the user and stores in session.\nLogin 认证用户并存储在会话中。\n",
+    "metadata": {
+      "name": "Login",
+      "package": "guards",
+      "struct": "Session",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Session:Logout",
+    "content": "Method Logout of type Session in package guards: Logout logs the user out of the session.\nLogout 从会话中注销用户。\n",
+    "metadata": {
+      "name": "Logout",
+      "package": "guards",
+      "struct": "Session",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Session:Once",
+    "content": "Method Once of type Session in package guards: Once authenticates the user without storing in session.\nOnce 认证用户但不存储在会话中。\n",
+    "metadata": {
+      "name": "Once",
+      "package": "guards",
+      "struct": "Session",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:guards:Session:User",
+    "content": "Method User of type Session in package guards: User returns the currently authenticated user.\nUser 返回当前认证的用户。\n",
+    "metadata": {
+      "name": "User",
+      "package": "guards",
+      "struct": "Session",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:upgrade:UpdateGoalWebDependencies",
+    "content": "Function UpdateGoalWebDependencies in package upgrade: UpdateGoalWebDependencies 更新 `go.mod` 中的 `github.com/goal-web` 依赖到指定 major.minor 版本的最新补丁版本\n",
+    "metadata": {
+      "name": "UpdateGoalWebDependencies",
+      "package": "upgrade",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "pkg:database",
+    "content": "Package database: Package database provides database functionality and singleton access.\n包 database 提供数据库功能和单例访问。\n",
+    "metadata": {
+      "name": "database",
+      "type": "package"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:database:Begin",
+    "content": "Function Begin in package database: Begin starts a new database transaction.\nBegin 开始新的数据库事务。\n",
+    "metadata": {
+      "name": "Begin",
+      "package": "database",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:database:Connection",
+    "content": "Function Connection in package database: Connection returns a database connection instance with the given name.\nConnection 返回指定名称的数据库连接实例。\n",
+    "metadata": {
+      "name": "Connection",
+      "package": "database",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:database:Default",
+    "content": "Function Default in package database: Default returns the singleton instance of the database factory.\nDefault 返回数据库工厂的单例实例。\n",
+    "metadata": {
+      "name": "Default",
+      "package": "database",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:database:DriverName",
+    "content": "Function DriverName in package database: DriverName returns the name of the database driver.\nDriverName 返回数据库驱动的名称。\n",
+    "metadata": {
+      "name": "DriverName",
+      "package": "database",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:database:Exec",
+    "content": "Function Exec in package database: Exec executes a query without returning results.\nExec 执行不返回结果的查询。\n",
+    "metadata": {
+      "name": "Exec",
+      "package": "database",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:database:Extend",
+    "content": "Function Extend in package database: Extend registers a custom database connector.\nExtend 注册自定义数据库连接器。\n",
+    "metadata": {
+      "name": "Extend",
+      "package": "database",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:database:GetQuery",
+    "content": "Function GetQuery in package database: GetQuery executes a query to get a single result.\nGetQuery 执行查询以获取单个结果。\n",
+    "metadata": {
+      "name": "GetQuery",
+      "package": "database",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:database:Query",
+    "content": "Function Query in package database: Query executes a query and returns a collection of results.\nQuery 执行查询并返回结果集合。\n",
+    "metadata": {
+      "name": "Query",
+      "package": "database",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:database:Select",
+    "content": "Function Select in package database: Select executes a select query and fills the destination with results.\nSelect 执行选择查询并将结果填充到目标中。\n",
+    "metadata": {
+      "name": "Select",
+      "package": "database",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:database:Transaction",
+    "content": "Function Transaction in package database: Transaction executes a callback within a database transaction.\nTransaction 在数据库事务中执行回调。\n",
+    "metadata": {
+      "name": "Transaction",
+      "package": "database",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:table:WithTX",
+    "content": "Function WithTX in package table: WithTX 使用TX\n",
+    "metadata": {
+      "name": "WithTX",
+      "package": "table",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:Avg",
+    "content": "Method Avg of type Table in package table: Avg 检索给定列的平均值\nRetrieve the average of the values of a given column.\n",
+    "metadata": {
+      "name": "Avg",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:ChunkByIdDesc",
+    "content": "Method ChunkByIdDesc of type Table in package table: ChunkByIdDesc 通过比较 ID 对查询结果进行分块\nchunk the results of a query by comparing IDs.\n",
+    "metadata": {
+      "name": "ChunkByIdDesc",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:Count",
+    "content": "Method Count of type Table in package table: Count 检索查询的“count”结果\nRetrieve the \"count\" result of the query.\n",
+    "metadata": {
+      "name": "Count",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:Create",
+    "content": "Method Create of type Table in package table: Create 保存新模型并返回实例\nSave a new model and return the instance.\n",
+    "metadata": {
+      "name": "Create",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:FindOrFail",
+    "content": "Method FindOrFail of type Table in package table: FindOrFail 按 ID 对单个记录执行查询\nExecute a query for a single record by ID.\n",
+    "metadata": {
+      "name": "FindOrFail",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:FirstOr",
+    "content": "Method FirstOr of type Table in package table: FirstOr 执行查询并获得第一个结果或调用回调\nExecute the query and get the first result or call a callback.\n",
+    "metadata": {
+      "name": "FirstOr",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:FirstWhere",
+    "content": "Method FirstWhere of type Table in package table: FirstWhere 向查询添加基本 where 子句，并返回第一个结果\nAdd a basic where clause to the query, and return the first result.\n",
+    "metadata": {
+      "name": "FirstWhere",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:FirstWhereE",
+    "content": "Method FirstWhereE of type Table in package table: FirstWhereE 向查询添加基本 where 子句，并返回第一个结果\nAdd a basic where clause to the query, and return the first result.\n",
+    "metadata": {
+      "name": "FirstWhereE",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:InsertOrReplace",
+    "content": "Method InsertOrReplace of type Table in package table: InsertOrReplace 将新记录插入数据库，同时如果存在，则先删除此行数据，然后插入新的数据\nInsert a new record into the database, and if it exists, delete this row of data first, and then insert new data.\n",
+    "metadata": {
+      "name": "InsertOrReplace",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:Max",
+    "content": "Method Max of type Table in package table: Max 检索给定列的最大值\nRetrieve the maximum value of a given column.\n",
+    "metadata": {
+      "name": "Max",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:Min",
+    "content": "Method Min of type Table in package table: Min 检索给定列的最小值\nRetrieve the minimum value of a given column.\n",
+    "metadata": {
+      "name": "Min",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:Paginate",
+    "content": "Method Paginate of type Table in package table: Paginate 对给定的查询进行分页。\npaginate the given query.\n",
+    "metadata": {
+      "name": "Paginate",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:SetByRelation",
+    "content": "Method SetByRelation of type Table in package table: SetByRelation 设置关联关系\n",
+    "metadata": {
+      "name": "SetByRelation",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:SetConnection",
+    "content": "Method SetConnection of type Table in package table: SetConnection 参数要么是 contracts.DBConnection 要么是 string\n",
+    "metadata": {
+      "name": "SetConnection",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:SetCreatedTimeColumn",
+    "content": "Method SetCreatedTimeColumn of type Table in package table: SetCreatedTimeColumn 设置创建时间字段\n",
+    "metadata": {
+      "name": "SetCreatedTimeColumn",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:SetExecutor",
+    "content": "Method SetExecutor of type Table in package table: SetExecutor 参数必须是 contracts.DBTx 实例\n",
+    "metadata": {
+      "name": "SetExecutor",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:SetFactory",
+    "content": "Method SetFactory of type Table in package table: SetFactory 设置类\n",
+    "metadata": {
+      "name": "SetFactory",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:SetPrimaryKey",
+    "content": "Method SetPrimaryKey of type Table in package table: SetPrimaryKey 设置主键\n",
+    "metadata": {
+      "name": "SetPrimaryKey",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:SetRelation",
+    "content": "Method SetRelation of type Table in package table: SetRelation 设置关联关系\n",
+    "metadata": {
+      "name": "SetRelation",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:SetUpdatedTimeColumn",
+    "content": "Method SetUpdatedTimeColumn of type Table in package table: SetUpdatedTimeColumn 设置更新时间字段\n",
+    "metadata": {
+      "name": "SetUpdatedTimeColumn",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:SetWiths",
+    "content": "Method SetWiths of type Table in package table: SetWiths 初始化关联查询\n",
+    "metadata": {
+      "name": "SetWiths",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:SimplePaginate",
+    "content": "Method SimplePaginate of type Table in package table: SimplePaginate 将给定的查询分页成一个简单的分页器\npaginate the given query into a simple paginator.\n",
+    "metadata": {
+      "name": "SimplePaginate",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:Sum",
+    "content": "Method Sum of type Table in package table: Sum 检索给定列的值的总和\nRetrieve the sum of the values of a given column.\n",
+    "metadata": {
+      "name": "Sum",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:table:Table:Update",
+    "content": "Method Update of type Table in package table: Update 更新数据库中的记录\nupdate records in the database.\n",
+    "metadata": {
+      "name": "Update",
+      "package": "table",
+      "struct": "Table",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:hash:Digest128",
+    "content": "Type Digest128 in package hash: Digest128 represents a partial evaluation of a 128 bites hash.\n",
+    "metadata": {
+      "name": "Digest128",
+      "package": "hash",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:hash:Digest128:Sum128",
+    "content": "Method Sum128 of type Digest128 in package hash: sum128 computers two 64-bit hash value. It is assumed that\nbmix was first called on the data to process complete blocks\nof 16 bytes. The 'tail' is a slice representing the 'tail' (leftover\nelements, fewer than 16). If pad_tail is true, we make it seem like\nthere is an extra element with value 1 appended to the tail.\nThe length parameter represents the full length of the data (including\nthe blocks of 16 bytes, and, if pad_tail is true, an extra byte).\n",
+    "metadata": {
+      "name": "Sum128",
+      "package": "hash",
+      "struct": "Digest128",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:hash:Digest128:Sum256",
+    "content": "Method Sum256 of type Digest128 in package hash: sum256 will compute 4 64-bit hash values from the input.\nIt is designed to never allocate memory on the heap. So it\nworks without any byte buffer whatsoever.\nIt is designed to be strictly equivalent to\n\n\t\t\t\ta1 := []byte{1}\n\t         hasher := murmur3.New128()\n\t         hasher.Write(data) // #nosec\n\t         v1, v2 := hasher.Sum128()\n\t         hasher.Write(a1) // #nosec\n\t         v3, v4 := hasher.Sum128()\n\nSee TestHashRandom.\n",
+    "metadata": {
+      "name": "Sum256",
+      "package": "hash",
+      "struct": "Digest128",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:encryption:PKCS7Padding",
+    "content": "Function PKCS7Padding in package encryption: PKCS7Padding 补码\n",
+    "metadata": {
+      "name": "PKCS7Padding",
+      "package": "encryption",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:encryption:PKCS7UnPadding",
+    "content": "Function PKCS7UnPadding in package encryption: PKCS7UnPadding 去码\n",
+    "metadata": {
+      "name": "PKCS7UnPadding",
+      "package": "encryption",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "pkg:providers",
+    "content": "Package providers: Package providers contains authentication user provider implementations.\n包 providers 包含认证用户提供者的实现。\n",
+    "metadata": {
+      "name": "providers",
+      "type": "package"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:providers:DBDriver",
+    "content": "Function DBDriver in package providers: DBDriver creates a new database-based user provider driver.\nDBDriver 创建新的基于数据库的用户提供者驱动。\n",
+    "metadata": {
+      "name": "DBDriver",
+      "package": "providers",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:providers:DB",
+    "content": "Type DB in package providers: DB implements a database-based user provider.\nDB 实现基于数据库的用户提供者。\n",
+    "metadata": {
+      "name": "DB",
+      "package": "providers",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:providers:DB:RetrieveById",
+    "content": "Method RetrieveById of type DB in package providers: RetrieveById retrieves a user by their identifier.\nRetrieveById 根据标识符获取用户。\n",
+    "metadata": {
+      "name": "RetrieveById",
+      "package": "providers",
+      "struct": "DB",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:doc:ScanAndGenerate",
+    "content": "Function ScanAndGenerate in package doc: ScanAndGenerate walks the root directory, parses Go files, and generates Markdown documentation.\n",
+    "metadata": {
+      "name": "ScanAndGenerate",
+      "package": "doc",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:queue:Later",
+    "content": "Function Later in package queue: Later 延迟后将新作业推送到队列中\npush a new job onto the queue after a delay.\n",
+    "metadata": {
+      "name": "Later",
+      "package": "queue",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:queue:LaterOn",
+    "content": "Function LaterOn in package queue: LaterOn 延迟后将新作业推送到队列中\npush a new job onto the queue after a delay.\n",
+    "metadata": {
+      "name": "LaterOn",
+      "package": "queue",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:queue:Push",
+    "content": "Function Push in package queue: Push 一个新工作进入队列\na new job onto the queue.\n",
+    "metadata": {
+      "name": "Push",
+      "package": "queue",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:queue:PushOn",
+    "content": "Function PushOn in package queue: PushOn 将新作业推送到队列中\npush a new job onto the queue.\n",
+    "metadata": {
+      "name": "PushOn",
+      "package": "queue",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:queue:PushRaw",
+    "content": "Function PushRaw in package queue: PushRaw 将原始有效负载推送到队列中\npush a raw payload onto the queue.\n",
+    "metadata": {
+      "name": "PushRaw",
+      "package": "queue",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Abort",
+    "content": "Function Abort in package http: Abort 创建一个中止响应（通常用于中间件）\n参数:\n  - code: HTTP状态码\n  - message: 错误消息（可选）\n",
+    "metadata": {
+      "name": "Abort",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Api",
+    "content": "Function Api in package http: Api 示例宏函数（根据文档中的例子）\n这个函数会在初始化时通过ResponseMacro注册\n",
+    "metadata": {
+      "name": "Api",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Back",
+    "content": "Function Back in package http: Back 重定向到前一个页面\n",
+    "metadata": {
+      "name": "Back",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:BadRequest",
+    "content": "Function BadRequest in package http: BadRequest 创建一个400响应\n参数:\n  - message: 错误消息（可选）\n",
+    "metadata": {
+      "name": "BadRequest",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Binary",
+    "content": "Function Binary in package http: Binary 创建一个二进制响应\n参数:\n  - data: 二进制数据\n  - contentType: 内容类型（可选，默认application/octet-stream）\n",
+    "metadata": {
+      "name": "Binary",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:CallMacro",
+    "content": "Function CallMacro in package http: CallMacro 调用已注册的响应宏\n参数:\n  - name: 宏名称\n  - args: 传递给宏的参数\n",
+    "metadata": {
+      "name": "CallMacro",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Download",
+    "content": "Function Download in package http: Download 创建一个文件下载响应\n参数:\n  - filePath: 文件路径\n  - fileName: 下载时显示的文件名（可选）\n",
+    "metadata": {
+      "name": "Download",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Error",
+    "content": "Function Error in package http: Error 创建一个错误响应\n参数:\n  - message: 错误消息\n  - code: HTTP状态码（可选，默认500）\n",
+    "metadata": {
+      "name": "Error",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:File",
+    "content": "Function File in package http: File 创建一个文件响应（在浏览器中显示文件）\n参数:\n  - filePath: 文件路径\n",
+    "metadata": {
+      "name": "File",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Forbidden",
+    "content": "Function Forbidden in package http: Forbidden 创建一个403响应\n参数:\n  - message: 错误消息（可选）\n",
+    "metadata": {
+      "name": "Forbidden",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:GetMacroNames",
+    "content": "Function GetMacroNames in package http: GetMacroNames 获取所有已注册的宏名称\n",
+    "metadata": {
+      "name": "GetMacroNames",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:HasMacro",
+    "content": "Function HasMacro in package http: HasMacro 检查是否存在指定名称的宏\n",
+    "metadata": {
+      "name": "HasMacro",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Html",
+    "content": "Function Html in package http: Html 创建一个HTML响应\n参数:\n  - html: HTML内容\n  - code: HTTP状态码（可选，默认200）\n",
+    "metadata": {
+      "name": "Html",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:InternalServerError",
+    "content": "Function InternalServerError in package http: InternalServerError 创建一个500响应\n参数:\n  - message: 错误消息（可选）\n",
+    "metadata": {
+      "name": "InternalServerError",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Json",
+    "content": "Function Json in package http: Json 创建JSON响应的简化方法\n参数:\n  - data: 要序列化的数据\n  - code: HTTP状态码（可选，默认200）\n",
+    "metadata": {
+      "name": "Json",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Jsonp",
+    "content": "Function Jsonp in package http: Jsonp 创建一个JSONP响应\n参数:\n  - callback: 回调函数名\n  - data: 要序列化的数据\n  - code: HTTP状态码（可选，默认200）\n",
+    "metadata": {
+      "name": "Jsonp",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:NoContent",
+    "content": "Function NoContent in package http: NoContent 创建一个无内容响应（204状态码）\n",
+    "metadata": {
+      "name": "NoContent",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:NotFound",
+    "content": "Function NotFound in package http: NotFound 创建一个404响应\n参数:\n  - message: 错误消息（可选）\n",
+    "metadata": {
+      "name": "NotFound",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:ParseRequestParams",
+    "content": "Function ParseRequestParams in package http: ParseRequestParams 用于解析请求的参数到指定结构体，包括表单、文件和 JSON 数据\n",
+    "metadata": {
+      "name": "ParseRequestParams",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Plain",
+    "content": "Function Plain in package http: Plain 创建一个纯文本响应\n参数:\n  - text: 文本内容\n  - code: HTTP状态码（可选，默认200）\n",
+    "metadata": {
+      "name": "Plain",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Redirect",
+    "content": "Function Redirect in package http: Redirect 创建一个重定向响应\n参数:\n  - url: 重定向的目标URL\n  - status: HTTP状态码，默认为302\n",
+    "metadata": {
+      "name": "Redirect",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Response",
+    "content": "Function Response in package http: Response 创建一个基础响应\n参数:\n  - content: 响应内容\n  - status: HTTP状态码（可选，默认200）\n",
+    "metadata": {
+      "name": "Response",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:ResponseMacro",
+    "content": "Function ResponseMacro in package http: ResponseMacro 注册一个响应宏\n参数:\n  - name: 宏名称\n  - macro: 宏函数\n",
+    "metadata": {
+      "name": "ResponseMacro",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Status",
+    "content": "Function Status in package http: Status 创建一个仅包含状态码的响应\n参数:\n  - code: HTTP状态码\n",
+    "metadata": {
+      "name": "Status",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Stream",
+    "content": "Function Stream in package http: Stream 创建一个流响应\n参数:\n  - reader: 数据流读取器\n  - contentType: 内容类型（可选，默认application/octet-stream）\n",
+    "metadata": {
+      "name": "Stream",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Text",
+    "content": "Function Text in package http: Text 是Plain的别名，创建一个纯文本响应\n",
+    "metadata": {
+      "name": "Text",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Unauthorized",
+    "content": "Function Unauthorized in package http: Unauthorized 创建一个401响应\n参数:\n  - message: 错误消息（可选）\n",
+    "metadata": {
+      "name": "Unauthorized",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:View",
+    "content": "Function View in package http: View 创建一个视图响应\n参数:\n  - templateName: 模板名称\n  - data: 传递给模板的数据\n",
+    "metadata": {
+      "name": "View",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "func:http:Xml",
+    "content": "Function Xml in package http: Xml 创建一个XML响应\n参数:\n  - data: 要序列化为XML的数据\n  - code: HTTP状态码（可选，默认200）\n",
+    "metadata": {
+      "name": "Xml",
+      "package": "http",
+      "type": "function"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:BackResponse",
+    "content": "Type BackResponse in package http: BackResponse 返回前一个页面的响应结构体\n",
+    "metadata": {
+      "name": "BackResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BackResponse:Bytes",
+    "content": "Method Bytes of type BackResponse in package http: Bytes 实现HttpResponse接口\n",
+    "metadata": {
+      "name": "Bytes",
+      "package": "http",
+      "struct": "BackResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BackResponse:Cookie",
+    "content": "Method Cookie of type BackResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "BackResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BackResponse:Header",
+    "content": "Method Header of type BackResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "BackResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BackResponse:WithErrors",
+    "content": "Method WithErrors of type BackResponse in package http: WithErrors 添加错误信息到重定向响应\n",
+    "metadata": {
+      "name": "WithErrors",
+      "package": "http",
+      "struct": "BackResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BackResponse:WithHeaders",
+    "content": "Method WithHeaders of type BackResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "BackResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BackResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type BackResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "BackResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BaseResponse:Cookie",
+    "content": "Method Cookie of type BaseResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "BaseResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BaseResponse:GetCookies",
+    "content": "Method GetCookies of type BaseResponse in package http: GetCookies 获取所有Cookie\n",
+    "metadata": {
+      "name": "GetCookies",
+      "package": "http",
+      "struct": "BaseResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BaseResponse:Header",
+    "content": "Method Header of type BaseResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "BaseResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BaseResponse:WithHeaders",
+    "content": "Method WithHeaders of type BaseResponse in package http: WithHeaders 添加多个响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "BaseResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BaseResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type BaseResponse in package http: WithoutCookie 删除Cookie（通过设置过期时间为过去）\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "BaseResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:BinaryResponse",
+    "content": "Type BinaryResponse in package http: BinaryResponse 二进制响应结构体\n",
+    "metadata": {
+      "name": "BinaryResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BinaryResponse:Cookie",
+    "content": "Method Cookie of type BinaryResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "BinaryResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BinaryResponse:Header",
+    "content": "Method Header of type BinaryResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "BinaryResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BinaryResponse:WithHeaders",
+    "content": "Method WithHeaders of type BinaryResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "BinaryResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:BinaryResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type BinaryResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "BinaryResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:DownloadResponse",
+    "content": "Type DownloadResponse in package http: DownloadResponse 文件下载响应结构体\n",
+    "metadata": {
+      "name": "DownloadResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:DownloadResponse:Cookie",
+    "content": "Method Cookie of type DownloadResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "DownloadResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:DownloadResponse:Header",
+    "content": "Method Header of type DownloadResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "DownloadResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:DownloadResponse:WithHeaders",
+    "content": "Method WithHeaders of type DownloadResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "DownloadResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:DownloadResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type DownloadResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "DownloadResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:ErrorResponse",
+    "content": "Type ErrorResponse in package http: ErrorResponse 错误响应结构体\n",
+    "metadata": {
+      "name": "ErrorResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:ErrorResponse:Cookie",
+    "content": "Method Cookie of type ErrorResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "ErrorResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:ErrorResponse:Header",
+    "content": "Method Header of type ErrorResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "ErrorResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:ErrorResponse:WithHeaders",
+    "content": "Method WithHeaders of type ErrorResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "ErrorResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:ErrorResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type ErrorResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "ErrorResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:FileResponse",
+    "content": "Type FileResponse in package http: FileResponse 文件响应结构体（用于在浏览器中显示文件）\n",
+    "metadata": {
+      "name": "FileResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:FileResponse:Cookie",
+    "content": "Method Cookie of type FileResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "FileResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:FileResponse:Header",
+    "content": "Method Header of type FileResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "FileResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:FileResponse:WithHeaders",
+    "content": "Method WithHeaders of type FileResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "FileResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:FileResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type FileResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "FileResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:GeneralResponse",
+    "content": "Type GeneralResponse in package http: GeneralResponse 通用响应结构体\n",
+    "metadata": {
+      "name": "GeneralResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:GeneralResponse:Cookie",
+    "content": "Method Cookie of type GeneralResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "GeneralResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:GeneralResponse:Header",
+    "content": "Method Header of type GeneralResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "GeneralResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:GeneralResponse:WithHeaders",
+    "content": "Method WithHeaders of type GeneralResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "GeneralResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:GeneralResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type GeneralResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "GeneralResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:HtmlResponse",
+    "content": "Type HtmlResponse in package http: HtmlResponse HTML响应结构体\n",
+    "metadata": {
+      "name": "HtmlResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:HtmlResponse:Cookie",
+    "content": "Method Cookie of type HtmlResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "HtmlResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:HtmlResponse:Header",
+    "content": "Method Header of type HtmlResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "HtmlResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:HtmlResponse:WithHeaders",
+    "content": "Method WithHeaders of type HtmlResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "HtmlResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:HtmlResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type HtmlResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "HtmlResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:JsonResponse:Cookie",
+    "content": "Method Cookie of type JsonResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "JsonResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:JsonResponse:Header",
+    "content": "Method Header of type JsonResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "JsonResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:JsonResponse:WithHeaders",
+    "content": "Method WithHeaders of type JsonResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "JsonResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:JsonResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type JsonResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "JsonResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:JsonpResponse",
+    "content": "Type JsonpResponse in package http: JsonpResponse JSONP响应结构体\n",
+    "metadata": {
+      "name": "JsonpResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:JsonpResponse:Cookie",
+    "content": "Method Cookie of type JsonpResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "JsonpResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:JsonpResponse:Header",
+    "content": "Method Header of type JsonpResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "JsonpResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:JsonpResponse:WithHeaders",
+    "content": "Method WithHeaders of type JsonpResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "JsonpResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:JsonpResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type JsonpResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "JsonpResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:NoContentResponse",
+    "content": "Type NoContentResponse in package http: NoContentResponse 无内容响应结构体\n",
+    "metadata": {
+      "name": "NoContentResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:NoContentResponse:Cookie",
+    "content": "Method Cookie of type NoContentResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "NoContentResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:NoContentResponse:Header",
+    "content": "Method Header of type NoContentResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "NoContentResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:NoContentResponse:WithHeaders",
+    "content": "Method WithHeaders of type NoContentResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "NoContentResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:NoContentResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type NoContentResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "NoContentResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:PlainResponse",
+    "content": "Type PlainResponse in package http: PlainResponse 纯文本响应结构体\n",
+    "metadata": {
+      "name": "PlainResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:PlainResponse:Cookie",
+    "content": "Method Cookie of type PlainResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "PlainResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:PlainResponse:Header",
+    "content": "Method Header of type PlainResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "PlainResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:PlainResponse:WithHeaders",
+    "content": "Method WithHeaders of type PlainResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "PlainResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:PlainResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type PlainResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "PlainResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:RedirectResponse",
+    "content": "Type RedirectResponse in package http: RedirectResponse 重定向响应结构体\n",
+    "metadata": {
+      "name": "RedirectResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:RedirectResponse:Bytes",
+    "content": "Method Bytes of type RedirectResponse in package http: Bytes 实现HttpResponse接口\n",
+    "metadata": {
+      "name": "Bytes",
+      "package": "http",
+      "struct": "RedirectResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:RedirectResponse:Cookie",
+    "content": "Method Cookie of type RedirectResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "RedirectResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:RedirectResponse:Header",
+    "content": "Method Header of type RedirectResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "RedirectResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:RedirectResponse:WithHeaders",
+    "content": "Method WithHeaders of type RedirectResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "RedirectResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:RedirectResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type RedirectResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "RedirectResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:ResponseMacroFunc",
+    "content": "Type ResponseMacroFunc in package http: ResponseMacroFunc 响应宏函数类型\n",
+    "metadata": {
+      "name": "ResponseMacroFunc",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:StatusResponse",
+    "content": "Type StatusResponse in package http: StatusResponse 状态响应结构体（仅返回状态码）\n",
+    "metadata": {
+      "name": "StatusResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:StatusResponse:Cookie",
+    "content": "Method Cookie of type StatusResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "StatusResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:StatusResponse:Header",
+    "content": "Method Header of type StatusResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "StatusResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:StatusResponse:WithHeaders",
+    "content": "Method WithHeaders of type StatusResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "StatusResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:StatusResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type StatusResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "StatusResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:StreamResponse",
+    "content": "Type StreamResponse in package http: StreamResponse 流响应结构体\n",
+    "metadata": {
+      "name": "StreamResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:StreamResponse:Cookie",
+    "content": "Method Cookie of type StreamResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "StreamResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:StreamResponse:Header",
+    "content": "Method Header of type StreamResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "StreamResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:StreamResponse:WithHeaders",
+    "content": "Method WithHeaders of type StreamResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "StreamResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:StreamResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type StreamResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "StreamResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:StringResponse:Header",
+    "content": "Method Header of type StringResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "StringResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:StringResponse:WithHeaders",
+    "content": "Method WithHeaders of type StringResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "StringResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:ViewResponse",
+    "content": "Type ViewResponse in package http: ViewResponse 视图响应结构体\n",
+    "metadata": {
+      "name": "ViewResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:ViewResponse:Cookie",
+    "content": "Method Cookie of type ViewResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "ViewResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:ViewResponse:Header",
+    "content": "Method Header of type ViewResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "ViewResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:ViewResponse:WithHeaders",
+    "content": "Method WithHeaders of type ViewResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "ViewResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:ViewResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type ViewResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "ViewResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:http:XmlResponse",
+    "content": "Type XmlResponse in package http: XmlResponse XML响应结构体\n",
+    "metadata": {
+      "name": "XmlResponse",
+      "package": "http",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:XmlResponse:Cookie",
+    "content": "Method Cookie of type XmlResponse in package http: Cookie 添加Cookie到响应\n",
+    "metadata": {
+      "name": "Cookie",
+      "package": "http",
+      "struct": "XmlResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:XmlResponse:Header",
+    "content": "Method Header of type XmlResponse in package http: Header 添加单个响应头\n",
+    "metadata": {
+      "name": "Header",
+      "package": "http",
+      "struct": "XmlResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:XmlResponse:WithHeaders",
+    "content": "Method WithHeaders of type XmlResponse in package http: WithHeaders 添加自定义响应头\n",
+    "metadata": {
+      "name": "WithHeaders",
+      "package": "http",
+      "struct": "XmlResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "method:http:XmlResponse:WithoutCookie",
+    "content": "Method WithoutCookie of type XmlResponse in package http: WithoutCookie 删除Cookie\n",
+    "metadata": {
+      "name": "WithoutCookie",
+      "package": "http",
+      "struct": "XmlResponse",
+      "type": "method"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:vector:Document",
+    "content": "Type Document in package vector: Document represents a chunk of text to be indexed.\n",
+    "metadata": {
+      "name": "Document",
+      "package": "vector",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:vector:SimpleStore",
+    "content": "Type SimpleStore in package vector: SimpleStore is a simple in-memory vector store that can be saved to JSON.\nIt uses brute-force cosine similarity for search, which is fast enough for \u003c10k docs.\n",
+    "metadata": {
+      "name": "SimpleStore",
+      "package": "vector",
+      "type": "type"
+    },
+    "embedding": null
+  },
+  {
+    "id": "type:vector:Store",
+    "content": "Type Store in package vector: Store defines the interface for a vector database.\n",
+    "metadata": {
+      "name": "Store",
+      "package": "vector",
+      "type": "type"
+    },
+    "embedding": null
+  }
+]

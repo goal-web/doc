@@ -1,0 +1,1 @@
+import{_ as t,c as e,o as r}from"./chunks/framework.DYx9Zc8T.js";const u=JSON.parse('{"title":"","description":"","frontmatter":{},"headers":[],"relativePath":"guide/orm/mutators.md","filePath":"guide/orm/mutators.md"}'),a={name:"guide/orm/mutators.md"};function o(s,m,c,n,d,i){return r(),e("div")}const _=t(a,[["render",o]]);export{u as __pageData,_ as default};
